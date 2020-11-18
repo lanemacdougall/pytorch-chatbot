@@ -4,6 +4,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
+from chatbot_model import NeuralNetwork
 
 with open("intents.json", "r") as file:
     intents = json.load(file)
@@ -59,11 +60,43 @@ class TrainingData(Dataset):
     
 
 # Training hyperparameters:
-batch_size = 10
-shuffle_data = True
-num_workers = 2
+batch_size = 8
+input_size = len(input_data[0])
+hidden_size = 8
+output_size = len(tags)
+learning_rate = 0.001
+epochs = 1000
+
+
+device = torch.device('cpu')
 
 data_set = TrainingData(input_data, labels)
-data_loader = DataLoader(dataset=data_set, batch_size=batch_size, shuffle=shuffle_data, num_workers=num_workers)
+data_loader = DataLoader(dataset=data_set, batch_size=batch_size, shuffle=True, num_workers=0)
 
+model = NeuralNetwork(input_size, hidden_size, output_size).to(device)
+
+# Loss function and optimization
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
+for epoch in range(epochs):
+    for (words, labels) in data_loader:
+        words = words.to(device)
+        labels = labels.to(device)
+
+        # Forward feed
+        output = model(words)
+        
+        # Calculate loss
+        loss = criterion(output, labels)
+
+        # Backpropagation and optimization
+        # Empty gradients
+        optimizer.zero_grad()
+        # Calculate backpropagation
+        loss.backward()
+        optimizer.step()
+    
+    if (epoch + 1) % 50 == 0:
+        print(epoch+1, epochs, loss.item())
 

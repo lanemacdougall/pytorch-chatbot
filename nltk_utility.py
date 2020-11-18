@@ -13,9 +13,8 @@ def stem(word):
 
 def bag_of_words(tok_sentence, all_words):
     tok_sentence = [nltk_utility.stem(word) for word in tok_sentence]
-    bag_of_words = [0 * len(all_words)]
+    bag_of_words = np.zeros(len(all_words), dtype=np.float32)
     for word in enumerate(all_words):
         if word in tok_sentence:
             bag_of_words[word.index()] = 1.0
-            print(index)
-    return np.array(bag_of_words)
+    return bag_of_words
