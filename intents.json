@@ -4,12 +4,6 @@
          "responses": ["Hello!", "Hi! How are you?", "Hi there, how can I help you today?", "Hello! How can I be of assistance?", "Hi! Are you having a good day so far?"],
          "context": [""]
         },
-        {"tag": "user_status",
-        "patterns": ["I'm great", "Im great", "Im great", "I'm good", "Good, thanks", "Good", "Im fine", "I'm fine", "Im okay", "I'm okay", "I am okay", "I'm alright", "Im alright", "Excellent", "Im excellent", "Im excellent thanks", "I am great thanks", "Excellent thanks", 
-                "Great", "Great, thanks!"],
-        "responses": ["Wonderful. How can I be of assistance?"],
-        "context": [""]
-        },
         {"tag": "goodbye",
          "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting with you, bye", "Till next time", "Adios", "Catch you later", "See ya"],
          "responses": ["See you later!", "It was nice chatting with you!", "Have a nice day", "Bye, come back again soon."],
@@ -19,11 +13,6 @@
          "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me", "Great, thank you!", "Thank you!"],
          "responses": ["Happy to help!", "Any time!", "My pleasure"],
          "context": [""]
-        },
-        {"tag": "how_are_you",
-        "patterns": ["How are you?", "How are you today?", "How are you doing?", "You good?", "How you doing?", "How's it going?", "How is it going?", "How are ya?"],
-        "responses": ["I am great, thank you!"],
-        "context": [""]
         },
         {"tag": "bot_name",
         "patterns": ["What's your name?", "What is your name?", "What do they call you?", "What can I call you?", "And your name is?", "And what is your name?", "Name?", "What do I call you?", 
@@ -60,34 +49,12 @@
          "responses": ["Shipping will take approximately 2 - 6 days, depending on your location."],
          "context": [""]
         },
-        {"tag": "shipping_cost",
-        "patterns": ["How much does shipping cost?", "Shipping cost?", "How much can I expect shipping to cost?", "How much will delivery cost?", "Delivery cost?", 
-                "How about shipping  cost?", "How much will it cost to ship my order?", "How much will shipping cost?", "How much will it cost to ship my order?", "How about ship cost?", "How much is it gonna cost to ship?", 
-                "How much is shipping going to cost?", "How much will shipping cost?", "What about shipping cost?", "How much will it cost for my order to be delivered?" ],
-        "responses": ["Shipping cost depends entirely on the size of the shipment and your location."],
-        "context": [""]
-        },
         {"tag": "business_hours",
         "patterns": ["What are your hours?", "When are you open?", "What times are you open?", "When can I speak to a representative?", "When can I speak with a person?", "When can I talk with a person", 
                 "Speak with a person", "Speak with a representative", "Talk with a rep", "Talk with a representative", "Talk to a representative", "Speak with a rep", "Speak to a representative now", "When is GroundsKeeper Coffee, Co. open",
                 "What time are you open?", "What are your hours of operation?", "When are your hours?", "What time can I contact you?", "What are your business hours?" ],
         "responses": ["We are open from 5 AM to 7 PM, Monday through Friday. You may speak with a representative during those hours at 1-800-GROUNDS."],
         "context": [""]
-        },
-        {"tag": "espresso",
-         "patterns": ["What is an espresso?", "I don't know what an espresso is", "Can you tell me more about the espresso", "I'm not sure what an espresso is", "What's an expresso?" ],
-         "responses": ["Espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure through finely-ground coffee beans."],
-         "context": [""]
-        },
-        {"tag": "cappuccino",
-         "patterns": ["What is an cappuccino?", "I don't know what a cappuccino is", "Can you tell me more about the cappuccino", "I'm not sure what a cappuccino is", "What's an capucino?", "What's an cappachino?", "What's an capachino?", "What's an capaccino?" ],
-         "responses": ["A cappuccino is an espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam."],
-         "context": [""]
-        },
-        {"tag": "macchiato",
-         "patterns": ["What is an macchiato?", "I don't know what a macchiato is", "Can you tell me more about the macchiato", "I'm not sure what a macchiato is", "What's a macchiato?", "What's an machiato?", "What's an macciato?" ],
-         "responses": ["Caffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed."],
-         "context": [""]
         }
    ]
 }
