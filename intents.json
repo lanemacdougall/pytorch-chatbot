@@ -31,11 +31,6 @@
         "responses": ["My name is Bean! I will be your virtual assistant today here at GroundsKeeper Coffee, Co."],
         "context": [""]
         },
-        {"tag": "no_answer",
-         "patterns": [],
-         "responses": ["Sorry, I can't understand you", "Please give me more info", "Sorry, not sure I understand you", "Sorry, I didn't catch that"],
-         "context": [""]
-        },
         {"tag": "options",
          "patterns": ["How you could help me?", "How can you help me?", "What can you do?", "How can you help me?", "How you can be helpful?", "What support do you offer?", "What is your purpose?", "What do you do?", "What's your job?"],
          "responses": ["I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\nI am here to answer any of your questions concerning our business.\nI am also able to answer your general coffee-related queries."],
