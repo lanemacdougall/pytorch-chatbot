@@ -6,7 +6,8 @@ class NeuralNetwork(nn.Module):
         super(NeuralNetwork, self).__init__()
         self.layer1 = nn.Linear(input_size, hidden_size)
         self.layer2 = nn.Linear(hidden_size, hidden_size)
-        self.layer3 = nn.Linear(hidden_size, num_labels)
+        self.layer3 = nn.Linear(hidden_size, hidden_size)
+        self.layer4 = nn.Linear(hidden_size, num_labels)
         self.relu = nn.ReLU()
 
     def forward(self, input):
@@ -18,6 +19,9 @@ class NeuralNetwork(nn.Module):
         output = self.relu(output)
         # Layer 3
         output = self.layer3(output)
+        output = self.relu(output)
+        # Layer 4
+        output = self.layer4(output)
         # Do not apply activation function or softmax after layer 3 because we are going to apply the cross-entropy loss function
         return output
 

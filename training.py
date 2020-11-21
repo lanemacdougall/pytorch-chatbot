@@ -5,6 +5,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from chatbot_model import NeuralNetwork
+from os.path import realpath as path
 
 def preprocess():
     with open("intents.json", "r") as file:
@@ -42,7 +43,7 @@ def preprocess():
     input_data = np.array(input_data)
     labels = np.array(labels)
 
-    return input_data, labels, tags
+    return input_data, labels, tags, all_words
 
 
 # Create PyTorch dataset with training data
@@ -61,20 +62,23 @@ class TrainingData(Dataset):
         return self.num_samples
     
 
-def train(input_data, labels, tags):
+def train(input_data, labels, tags, all_words):
     # Training hyperparameters:
     batch_size = 8
     input_size = len(input_data[0])
     hidden_size = 8
     output_size = len(tags)
     learning_rate = 0.001
-    epochs = 2000
+    epochs = 2500
 
+    # DataLoader parameters
+    shuffle_arg = True
+    num_workers_arg = 0
 
     device = torch.device('cpu')
 
     data_set = TrainingData(input_data, labels)
-    data_loader = DataLoader(dataset=data_set, batch_size=batch_size, shuffle=True, num_workers=0)
+    data_loader = DataLoader(dataset=data_set, batch_size=batch_size, shuffle=shuffle_arg, num_workers=num_workers_arg)
 
     #data_loader_iter = iter(data_loader)
     #for (words, labels) in data_loader_iter:
@@ -106,10 +110,24 @@ def train(input_data, labels, tags):
         
         if (epoch + 1) % 50 == 0:
             print(epoch+1, epochs, loss.item())
+    
+    model_data = {
+        "model_state" : model.state_dict(),
+        "input_size" : input_size,
+        "output_size" : output_size,
+        "hidden_size" : hidden_size,
+        "all_words" : all_words,
+        "tags" : tags,
+    }
+
+    FILE = "model.pth"
+    torch.save(model_data, FILE)
+    print("Training complete. Model data saved to", path(FILE))
+
 
 
 def main():
-    input_data, labels, tags = preprocess()
-    train(input_data, labels, tags)
+    input_data, labels, tags, all_words = preprocess()
+    train(input_data, labels, tags, all_words)
 
 main()
