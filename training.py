@@ -69,7 +69,7 @@ def train(input_data, labels, tags, all_words):
     hidden_size = 8
     output_size = len(tags)
     learning_rate = 0.001
-    epochs = 2500
+    epochs = 3000
 
     # DataLoader parameters
     shuffle_arg = True
@@ -108,7 +108,7 @@ def train(input_data, labels, tags, all_words):
             loss.backward()
             optimizer.step()
         
-        if (epoch + 1) % 50 == 0:
+        if (epoch + 1) % 100 == 0:
             print(epoch+1, epochs, loss.item())
     
     model_data = {
