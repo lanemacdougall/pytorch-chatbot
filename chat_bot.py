@@ -70,6 +70,7 @@ def chat():
     model, all_words, tags = setup()
     chatbot = ChatBot(model, 'Kyle', all_words, tags)
     chatbot.greet()
+    states = [0] * len(tags)
     while True:
         user_input = chatbot.get_input()
         if (user_input.lower() == 'done'):
@@ -79,27 +80,123 @@ def chat():
         if intent == 'fail':
             print(chatbot.prompt, 'Sorry, I didn\'t catch that. Can you say that again?')
         elif intent == 'greeting':
-            print(chatbot.prompt, 'Hello! How can I be of assistance?')
+            state = states[tags.index('greeting')]
+            if state == 0:
+                print(chatbot.prompt, 'Hello! How can I be of assistance?')
+            elif state == 1:
+                print(chatbot.prompt, 'Hello again! I\'m still happy to be of assistance to you.')
+            elif state == 2:
+                print(chatbot.prompt, 'You really enjoy saying hello, huh? Well, so do I! Hello hello!')
+            elif state == 3:
+                print(chatbot.prompt, 'Still saying hello? Let\'s start getting to business! How can I help you?')
+            else:
+                print(chatbot.prompt, 'I guess quarantine really took a toll on you, huh?')
+            states[tags.index('greeting')] += 1
         elif intent == 'goodbye':
-            print(chatbot.prompt, 'Bye, come back again soon.')
+            state = states[tags.index('goodbye')]
+            if state == 0:
+                print(chatbot.prompt, 'Bye, come back again soon.')
+            elif state == 1:
+                print(chatbot.prompt, 'I agree, goodbyes are hard, but feel free to come back any time!')
+            elif state == 2:
+                print(chatbot.prompt, 'Well I hope third time is the charm. See ya!')
+            elif state == 3:
+                print(chatbot.prompt, 'I should probably go talk to other customers, okay?')
+            else:
+                print(chatbot.prompt, 'Oh brother...')
+            states[tags.index('goodbye')] += 1
         elif intent == 'thanks':
-            print(chatbot.prompt, 'Happy to help!')
+            state = states[tags.index('thanks')]
+            if state == 0:
+                print(chatbot.prompt, 'Happy to help!')
+            elif state == 1:
+                print(chatbot.prompt, 'You\'re so polite! I am here to serve.')
+            else:
+                print(chatbot.prompt, 'I think that I should be the one thanking you!')
+            if state < 2:
+                states[tags.index('thanks')] += 1
+            else:
+                states[tags.index('thanks')] = 0
         elif intent == 'how_are_you':
-            print(chatbot.prompt, 'I am great, thank you!')
+            state = states[tags.index('how_are_you')]
+            if state == 0:
+                print(chatbot.prompt, 'I am great, thank you!')
+            elif state == 1:
+                print(chatbot.prompt, 'Better now that I\'m talking to you!')
+            elif state == 2:
+                print(chatbot.prompt, 'Well, my battery is a little low, but otherwise I\'m doing good haha.')
+            elif state == 3:
+                print(chatbot.prompt, 'You are VERY concerned for my well-being! I\'m doing just fine.')
+            else:
+                print(chatbot.prompt, 'Okay enough about me, let\'s get down to business!')
+            states[tags.index('how_are_you')] += 1
         elif intent == 'bot_name':
-            print(chatbot.prompt, 'My name is ', chatbot.name, '! I will be your virtual assistant today here at GroundsKeeper Coffee, Co.', sep='')
+            state = states[tags.index('bot_name')]
+            if state == 0:
+                print(chatbot.prompt, 'My name is ', chatbot.name, '! I will be your virtual assistant today here at GroundsKeeper Coffee, Co.', sep='')
+            elif state == 1:
+                print(chatbot.prompt, 'Sorry, I thought that I already told you! My name is ', chatbot.name, '! I will be your virtual assistant today here at GroundsKeeper Coffee, Co.', sep='')
+            else:
+                print(chatbot.prompt, 'I\'ve already told you, remember? I\'m ', chatbot.name, '!', sep='')
+            states[tags.index('bot_name')] += 1
         elif intent == 'options':
-            print(chatbot.prompt, 'I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\nI am here to answer any of your questions concerning our business.\nI am also able to answer your general coffee-related queries.')
+            state = states[tags.index('options')]
+            if state == 0:
+                print(chatbot.prompt, 'I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\nI am here to answer any of your questions concerning our business.\nI am also able to answer your general coffee-related queries.')
+            elif state == 1:
+                print(chatbot.prompt, 'Well, as I said before, I\'m here to answer any of your questions concerning our business!')
+            elif state == 2:
+                print(chatbot.prompt, 'Like I said the other two times, I can answer any question you have about GroundsKeeper Coffee Supply, Co.')
+            else:
+                print(chatbot.prompt, 'Well, I can answer questions other than just this one! Haha. Kidding, of course. But I am curious about other questions that you might have.')
+            states[tags.index('options')] += 1
         elif intent == 'coffee_supplies':
-            print(chatbot.prompt, 'We offer large-scale coffee bean supplies in a variety of coffee bean types.\nWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
+            state = states[tags.index('coffee_supplies')]
+            if state == 0:
+                print(chatbot.prompt, 'We offer large-scale coffee bean supplies in a variety of coffee bean types.\nWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
+            elif state == 1:
+                print(chatbot.prompt, 'I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\nWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
+            elif state == 2:
+                print(chatbot.prompt, 'You don\'t remember me telling you? Basically just coffee coffee.')
+            else:
+                print(chatbot.prompt, 'Coffee. But you\'re starting to strike me as more of a Starbucks type of person...')
+            states[tags.index('coffee_supplies')] += 1
         elif intent == 'payment':
-            print(chatbot.prompt, 'We accept cash, personal checks, credit, PayPal, and CashApp.')
+            state = states[tags.index('payment')]
+            if state == 0:
+                print(chatbot.prompt, 'We accept cash, personal checks, credit, PayPal, and CashApp.')
+            elif state == 1:
+                print(chatbot.prompt, 'Sorry, I thought I already told you! I apologize! We accept cash, personal checks, credit, PayPal, and CashApp.')
+            elif state == 2:
+                print(chatbot.prompt, 'I thought I already told you! We accept cash, personal checks, credit, PayPal, and CashApp.')
+            else:
+                print(chatbot.prompt, '*Exhale* Cash, personal checks, credit, PayPal, and CashApp.')
+            states[tags.index('payment')] += 1
         elif intent == 'shipping_time':
-            print(chatbot.prompt, 'Shipping will take approximately 2 - 6 days, depending on your location.')
+            state = states[tags.index('shipping_time')]
+            if state == 0:
+                print(chatbot.prompt, 'Shipping will take approximately 2 - 6 days, depending on your location.')
+            elif state == 1:
+                print(chatbot.prompt, 'It depends on your location, but typically it takes 2 - 6 days.')
+            elif state == 2:
+                print(chatbot.prompt, 'Like I mentioned earlier, shipping will take approximately 2 - 6 days, depending on your location.')
+            states[tags.index('shipping_time')] += 1
         elif intent == 'shipping_cost':
-            print(chatbot.prompt, 'Shipping cost depends entirely on the size of the shipment and your location.')
+            state = states[tags.index('shipping_cost')]
+            if state == 0:
+                print(chatbot.prompt, 'Shipping cost depends entirely on the size of the shipment and your location.')
+            elif state == 1:
+                print(chatbot.prompt, 'It depends on your location and the size of your order, but I promise it\'s worth it!')
+            elif state == 2:
+                print(chatbot.prompt, 'Like I mentioned earlier, shipping cost depends entirely on the size of the shipment and your location.')
+            states[tags.index('shipping_cost')] += 1
         elif intent == 'business_hours':
-            print(chatbot.prompt, 'We are open from 5 AM to 7 PM, Monday through Friday. You may speak with a representative during those hours at 1-800-GROUNDS.')
+            state = states[tags.index('business_hours')]
+            if state == 0:
+                print(chatbot.prompt, 'We are open from 5 AM to 7 PM, Monday through Friday. You may speak with a representative during those hours at 1-800-GROUNDS.')
+            else:
+                print(chatbot.prompt, 'Like I said earlier, we\'re open from 5 AM to 7 PM, Monday through Friday. And don\'t forget, you may speak with a representative during those hours at 1-800-GROUNDS.')
+            states[tags.index('business_hours')] += 1
         else:
             print(intent)
 
