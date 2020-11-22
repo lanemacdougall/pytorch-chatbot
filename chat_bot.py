@@ -142,7 +142,7 @@ def chat():
         elif intent == 'options':
             state = states[tags.index('options')]
             if state == 0:
-                print(chatbot.prompt, 'I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\nI am here to answer any of your questions concerning our business.\nI am also able to answer your general coffee-related queries.')
+                print(chatbot.prompt, 'I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\n\tI am here to answer any of your questions concerning our business.\n\tI am also able to answer your general coffee-related queries.')
             elif state == 1:
                 print(chatbot.prompt, 'Well, as I said before, I\'m here to answer any of your questions concerning our business!')
             elif state == 2:
@@ -153,9 +153,9 @@ def chat():
         elif intent == 'coffee_supplies':
             state = states[tags.index('coffee_supplies')]
             if state == 0:
-                print(chatbot.prompt, 'We offer large-scale coffee bean supplies in a variety of coffee bean types.\nWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
+                print(chatbot.prompt, 'We offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
             elif state == 1:
-                print(chatbot.prompt, 'I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\nWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
+                print(chatbot.prompt, 'I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
             elif state == 2:
                 print(chatbot.prompt, 'You don\'t remember me telling you? Basically just coffee coffee.')
             else:
@@ -197,8 +197,40 @@ def chat():
             else:
                 print(chatbot.prompt, 'Like I said earlier, we\'re open from 5 AM to 7 PM, Monday through Friday. And don\'t forget, you may speak with a representative during those hours at 1-800-GROUNDS.')
             states[tags.index('business_hours')] += 1
-        else:
-            print(intent)
+        elif intent == 'espresso':
+            state = states[tags.index('espresso')]
+            if state == 0:
+                print(chatbot.prompt, 'Espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure through finely-ground coffee beans.\n\tEspresso coffee can be made with a wide variety of coffee beans and roast levels.')
+            elif state == 1:
+                print(chatbot.prompt, 'I love your enthusiasm for espresso!\n\tLike I said before, espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure through finely-ground coffee beans.')
+            elif state == 2:
+                print(chatbot.prompt, 'Okay, well, again, espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure through finely-ground coffee beans.')
+            else:
+                print(chatbot.prompt, 'You know you can ask about other types of coffee too, right?...')
+            states[tags.index('espresso')] += 1
+        elif intent == 'cappuccino':
+            state = states[tags.index('cappuccino')]
+            if state == 0:
+                print(chatbot.prompt, 'A cappuccino is an espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.')
+            elif state == 1:
+                print(chatbot.prompt, 'Well, like I said before, a cappuccino is an espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.')
+            elif state == 2:
+                print(chatbot.prompt, 'You\'re very curious about cappuccino, huh? A cappuccino is an espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.')
+            else:
+                print(chatbot.prompt, 'Well at this point I feel like I should just tell you about some other kind of coffee.')
+            states[tags.index('cappuccino')] += 1
+        elif intent == 'macchiato':
+            state = states[tags.index('macchiato')]
+            if state == 0:
+                print(chatbot.prompt, 'Caffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed.\n\tIn Italian, macchiato means "stained" or "spotted" so the literal translation of caffè macchiato is "stained” or “marked coffee.”')
+            elif state == 1:
+                print(chatbot.prompt, 'You demonstrate an enthusiasm for macchiato that is unlike any other I\'ve seem!\n\tCaffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed.\n\tIn Italian, macchiato means "stained" or "spotted" so the literal translation of caffè macchiato is "stained” or “marked coffee.”')
+            elif state == 2:
+                print(chatbot.prompt, 'This curiousity of your\'s if persistent! Caffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed.\n\tIn Italian, macchiato means "stained" or "spotted" so the literal translation of caffè macchiato is "stained” or “marked coffee.”')
+            else:
+                print(chatbot.prompt, 'Why don\'t you ask me about espresso? We\'ve been talking about macchiato for a while now.')
+            states[tags.index('macchiato')] += 1
+
 
 
 def main():
