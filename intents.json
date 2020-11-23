@@ -1,79 +1,64 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi", "Hi there", "Is anyone there?", "Hey", "Heyyy", "Hiii", "Hiya", "Hola", "Hello", "Hellooo", "Whats up", "What's up", "What is up?", "sup", "Yo", "Yooo"],
-         "context": [""]
+         "patterns": ["Hi", "Hi there", "Hello there", "Is anyone there?", "Hey", "Heyyy", "Hiii", "Hiya", "Hya", "Hola", "Hello", "Hellooo", "Whats up", "What's up", "What is up?", "sup", "Yo", "Yooo"],
+         "context_set": ""
         },
         {"tag": "goodbye",
-         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting with you, bye", "Till next time", "Adios", "Catch you later", "See ya"],
+         "patterns": ["Bye", "See you later", "Nice talking with you!", "Goodbye", "Nice chatting with you", "Till next time", "Adios", "Catch you later", "See ya", "See you later"],
          "responses": ["See you later!", "It was nice chatting with you!", "Have a nice day", "Bye, come back again soon."],
-         "context": [""]
+         "context_set": ""
         },
         {"tag": "thanks",
-         "patterns": ["Thanks", "Thank you", "That's helpful", "You're so helpful", "You are so helpful", "Awesome, thanks", "Thanks for helping me", "Thank you for helping me", "Great, thank you!", "Thank you!", "Wow! Thank you!", "You're awesome!", "You're so awesome!"],
-         "context": [""]
+         "patterns": ["Thanks", "Thank you", "That's helpful", "That is helpful", "You're so helpful", "You are so helpful", "Awesome, thanks", "Thanks for helping me", "Thank you for helping me", "Great, thank you!", "Thank you!", "Wow! Thank you!", "You're awesome!", "You're so awesome!",
+              "That makes much more sense", "Ah I understand", "Okay great, thank you!", "Great, thank you so much!", "Great, thank you!"]
         },
         {"tag": "how_are_you",
-        "patterns": ["How are you?", "How are you today?", "How are you doing?", "You good?", "How you doing?", "How's it going?", "How is it going?", "How are ya?", "You doing good?", "How you doing?"],
-        "context": [""]
+        "patterns": ["How are you?", "How are you today?", "How are you doing?", "Doing good?", "You good?", "You good?", "How you doing?", "How's it going?", "How is it going?", "How are ya?", "You doing good?", "How you doing?"],
+        "context_set": "howisuser"
+        },
+        {"tag": "how_is_user",
+        "patterns": ["Good", "Great", "Well", "Excellent", "Wonderful", "I'm good", "I'm great", "I'm well", "I'm excellent", "I'm wonderful", "Doing good", "Doing great", "Doing excellent", "Doing wonderful", "Fantastic", "I'm fantastic", "Doing fantastic",
+              "Really great", "Really good", "Really excellent", "Really fantastic", "Really wonderful", "Really good", "Really well", "I am good", "I am great", "I am fantastic", "I am wonderful", "I am well"],
+        "context_filter": "howisuser"
         },
         {"tag": "bot_name",
         "patterns": ["What's your name?", "What is your name?", "What do they call you?", "What can I call you?", "And your name is?", "And what is your name?", "Name?", "What do I call you?", 
-                "And who am I speaking with?", "Who am I speaking with?", "Who do I have the pleasure of speaking to?", "Who are you?", "And what do they call you?"],
-        "context": [""]
+                "And who am I speaking with?", "Who am I speaking with?", "Who do I have the pleasure of speaking to?", "Who are you?", "And what do they call you?"]
         },
         {"tag": "options",
-         "patterns": ["How you could help me?", "How can you help me?", "What can you do?", "How you can be helpful?", "What support do you offer?", "What is your purpose?", "What do you do?", "What's your job?", "What is your job?", "What is your job?", "What's your job?"],
-         "context": [""]
+         "patterns": ["How you could help me?", "How can you help me?", "What can you do?", "How you can be helpful?", "What support do you offer?", "What is your purpose?", "What do you do?", "What's your job?", "What is your job?", "What is your job?", "What's your job?",
+              "What are my options?", "What options do you offer?", "What options do you have?", "What are your options?", "Options?", "What are you able to do?", "What can you do for me?", "Whats your purpose?", "What is your purpose?"]
         },
         {"tag": "coffee_supplies",
          "patterns": ["What kinds of coffee do you sell?", "What kinds of coffee do you have?", "What kind of coffee do you have?", "What kind of coffee do you sell?", "What do you sell?", "What do you have?", "What do you supply?", "What kinds of coffee do you supply", "What does the business sell?", "What does GroundsKeeper Coffee, Co. sell?", 
                 "What kinds of coffee does GroundsKeeper Coffee, Co. sell?", "What kinds of coffee does GroundsKeeper Coffee, Co. have?", "What kinds of coffee does GroundsKeeper Coffee, Co. supply?", "What do you sell here?", "What can I buy from you?", "What do you have for me to buy?", "What does GroundsKeeper Coffee sell?",
-                "What does GroundsKeeper sell?", "What can I buy from GroundsKeeper Coffee?", "What can I buy?", "What is for sale?"],
-         "context": [""]
+                "What does GroundsKeeper sell?", "What can I buy from GroundsKeeper Coffee?", "What can I buy?", "What is for sale?", "What is for sale?", "What do you have for sale?", "Whats for sale?", "What can I buy?", "What do you have that I can buy?", "What's on your menu?", "What is on the menu?",
+                "Whats on the menu today?", "What coffee can I buy?", "What types of coffee can I buy?", "What coffee can I buy?"],
+         "context_set": "interestedcustomer"
         },
         {"tag": "payment",
         "patterns": ["What do you take as payment?", "How can I pay?", "What forms of payment do you take?", "What forms of payment do you accept?", "Do you take cash?", "Do you accept cash?", "Do you take credit?", "Do you take credit?", "Do you accept credit?", "Do you accept credit cards?", 
                 "Do you accept checks?", "Do you take check?", "Do you take checks?", "Can I pay with a check?", "Can I pay with cash?", "Can I pay with credit?", "Can I pay with a credit card?", "Can I write you a check?", "Can I give you cash?", "Will you accept my credit card?", "Is card okay?", "Is cash okay?", "Is check okay?",
-                "Y'all take cash?", "Yall take cash?", "Y'all take credit?", "Yall take credit?", "Y'all take credit cards?", "Yall take credit cards?", "Y'all take check?", "Yall take check?"],
-        "context": [""]
+                "Y'all take cash?", "Yall take cash?", "Y'all take credit?", "Yall take credit?", "Y'all take credit cards?", "Yall take credit cards?", "Y'all take check?", "Yall take check?", "Accept cash?", "Accept card?", "Accept credit?", "Accept check?", "Yall take card?", "You take card?", "You accept cash?",
+                "You take check?", "You take credit?", "You take cash?", "I want to pay with cash", "I want to pay with credit", "I wanna pay with card", "I wanna pay with check", "I want to pay with card", "I want to pay with check", "Do you accept PayPal?", "Do you take PayPal?", "You take PayPal?", 
+                "Can I pay with PayPal?", "Can I give you PayPal?", "Do you accept PayPal?", "Are you fine with PayPal?", "I assume that you take cash", "I assume that you take card", "I assume that you accept credit", "I assume that you accept check", "I assume that you accept PayPal"]
         },
         {"tag": "shipping_time",
          "patterns": ["How long does shipping take?", "Shipping time?", "How long can I expect shipping to take?", "When can I expect my order?", "How long will my order take to arrive?", "When will my order arrive?", 
                 "How about shipping?", "How long will it take to ship my order?", "How long will shipping take?", "How long will it take for my order to arrive?", "How about ship time?", "How long is it gonna take to ship?", 
                 "How long is shipping going to take?", "How long will shipping take?", "What about shipping?", "How long will it take for my order to be delivered?", "When will it get delivered?", "When will it ship?", "When will my order get to me?",
-                "When will my coffee get here?", "When will my coffee arrive?", "How long is this gonna take?" ],
-         "context": [""]
+                "When will my coffee get here?", "When will my coffee arrive?", "How long is this gonna take?" ]
         },
         {"tag": "shipping_cost",
         "patterns": ["How much does shipping cost?", "Shipping cost?", "How much can I expect shipping to cost?", "How much will delivery cost?", "Delivery cost?", 
                 "How about shipping  cost?", "How much will it cost to ship my order?", "How much will shipping cost?", "How much will it cost to ship my order?", "How about ship cost?", "How much is it gonna cost to ship?", 
                 "How much is shipping going to cost?", "How much will shipping cost?", "What about shipping cost?", "How much will it cost for my order to be delivered?", "How much will my coffee cost?", "What is this all gonna cost me?", "What's this gonna cost me?",
-                "How much is my order going to cost?", "How much is this going to cost?"],
-        "context": [""]
+                "How much is my order going to cost?", "How much is this going to cost?"]
         },
         {"tag": "business_hours",
         "patterns": ["What are your hours?", "When are you open?", "What times are you open?", "When can I speak to a representative?", "When can I speak with a person?", "When can I talk with a person", 
                 "Speak with a person", "Speak with a representative", "Talk with a rep", "Talk with a representative", "Talk to a representative", "Speak with a rep", "Speak to a representative now", "When is GroundsKeeper Coffee, Co. open",
-                "What time are you open?", "What are your hours of operation?", "When are your hours?", "What time can I contact you?", "What are your business hours?", "When can I contact you?", "When can I contact a rep?", "When can I get into contact with a rep?"],
-        "context": [""]
-        },
-        {"tag": "espresso",
-         "patterns": ["What is an espresso?", "I don't know what an espresso is", "Can you tell me more about the espresso", "I'm not sure what an espresso is", "What espresso?", "Whats espresso?", "I don't know what espresso is", "Can you tell me more about espresso", "I'm not sure what espresso is", "What's expresso?",
-                "What is espresso?", "Idk what espresso is", "Can you tell me more about espresso", "I'm not sure what espresso is", "What's espresso?", "Espresso", "What's the deal with espresso?", "What espresso is?", "What is espresso?", "Tell me what espresso is", "I want to know what espresso is",
-                "I wanna know about espresso", "I want to know about espresso", "What's the deal with espresso?", "What is espresso?", "I don't know anything about espresso", "I want to know what you know about espresso", "Espresso"],
-         "context": [""]
-        },
-        {"tag": "cappuccino",
-         "patterns": ["What is an cappuccino?", "I don't know what a cappuccino is", "Can you tell me more about the cappuccino", "I'm not sure what a cappuccino is", "What is cappuccino?", "I don't know what cappuccino is", "Can you tell me more about cappuccino", "I'm not sure what cappuccino is", 
-                "I want to know about cappuccino?", "I don't know anything about cappuccino what is", "Can you tell me more about cappuccino", "I'm not sure what a cappuccino is", "Cappuccino?", "What cappuccino is", "What is the deal with cappuccino?", "Tell me all about cappuccino",
-                "I wanna know everything about cappuccino", "I really don't know anything about cappuccino", "Tell me all about cappuccino", "What even is cappuccino", "Cappuccino"],
-         "context": [""]
-        },
-        {"tag": "macchiato",
-         "patterns": ["What is a macchiato?", "I don't know what a macchiato is", "Can you tell me more about the macchiato", "I'm not sure what a macchiato is", "What's a macchiato?", "What is macchiato?", "I don't know what macchiato is", "Can you tell me more about macchiato", "I'm not sure what macchiato is", "What's macchiato?",
-                "What macchiato?", "Idk what macchiato is", "Tell me more about macchiato", "I'm not sure about macchiato", "What's the deal with macchiato?", "Macchiato?", "I want to know what macchiato is", "I wanna know about macchiato", "I want to know what macchiato is", "What's the deal with macchiato?",
-                "Tell me all about macchiato?", "I want to know what macchiato is", "Tell me all about macchiato", "I want to know macchiato", "Enlighten me with macchiato knowledge", "Tell me macchiato", "Macchiato"],
-         "context": [""]
+                "What time are you open?", "What are your hours of operation?", "When are your hours?", "What time can I contact you?", "What are your business hours?", "When can I contact you?", "When can I contact a rep?", "When can I get into contact with a rep?"]
         }
    ]
 }

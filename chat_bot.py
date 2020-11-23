@@ -56,7 +56,7 @@ class ChatBot():
         output = self.model(bag)
         _, predicted = torch.max(output, dim=1)
         intent = self.tags[predicted.item()]
-
+        
         probs = torch.softmax(output, dim=1)
         intent_prob = probs[0][predicted.item()]
         if intent_prob > 0.75:
