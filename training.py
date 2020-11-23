@@ -66,10 +66,12 @@ def train(input_data, labels, tags, all_words):
     # Training hyperparameters:
     batch_size = 8
     input_size = len(input_data[0])
-    hidden_size = 8
+    hidden_size1 = 64
+    hidden_size2 = 32
+    hidden_size3 = 32
     output_size = len(tags)
     learning_rate = 0.001
-    epochs = 3000
+    epochs = 1000
 
     # DataLoader parameters
     shuffle_arg = True
@@ -84,7 +86,7 @@ def train(input_data, labels, tags, all_words):
     #for (words, labels) in data_loader_iter:
     #    print(words, labels)
 
-    model = NeuralNetwork(input_size, hidden_size, output_size).to(device)
+    model = NeuralNetwork(input_size, hidden_size1, hidden_size2, hidden_size3, output_size).to(device)
 
     # Loss function and optimization
     criterion = nn.CrossEntropyLoss()
@@ -115,7 +117,9 @@ def train(input_data, labels, tags, all_words):
         "model_state" : model.state_dict(),
         "input_size" : input_size,
         "output_size" : output_size,
-        "hidden_size" : hidden_size,
+        "hidden_size1" : hidden_size1,
+        "hidden_size2" : hidden_size2,
+        "hidden_size3" : hidden_size3,
         "all_words" : all_words,
         "tags" : tags,
     }

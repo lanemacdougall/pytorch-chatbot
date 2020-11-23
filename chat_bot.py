@@ -16,14 +16,16 @@ def setup():
     model_data = torch.load(FILE)
 
     input_size = model_data['input_size']
-    hidden_size = model_data['hidden_size']
+    hidden_size1 = model_data['hidden_size1']
+    hidden_size2 = model_data['hidden_size2']
+    hidden_size3 = model_data['hidden_size3']
     output_size = model_data['output_size']
 
     all_words = model_data['all_words']
     tags = model_data['tags']
     model_state = model_data['model_state']
 
-    model = NeuralNetwork(input_size, hidden_size, output_size).to(device)
+    model = NeuralNetwork(input_size, hidden_size1, hidden_size2, hidden_size3, output_size).to(device)
     model.load_state_dict(model_state)
     # Set model to evaluation mode
     model.eval()
