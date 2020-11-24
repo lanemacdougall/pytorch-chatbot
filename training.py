@@ -70,7 +70,7 @@ def train(input_data, labels, tags, all_words):
     hidden_size2 = 32
     output_size = len(tags)
     learning_rate = 0.001
-    epochs = 1000
+    epochs = 2500
 
     # DataLoader parameters
     shuffle_arg = True
@@ -107,7 +107,7 @@ def train(input_data, labels, tags, all_words):
         
 
         if (epoch + 1) % 100 == 0:
-            print('Epoch: %d , Loss: %.12f' % (epoch+1, loss.item()))
+            print('Epoch:', (epoch+1), 'Loss: ', loss.item())
     
     model_data = {
         "model_state" : model.state_dict(),

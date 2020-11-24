@@ -198,39 +198,15 @@ def chat():
             else:
                 print(chatbot.prompt, 'Like I said earlier, we\'re open from 5 AM to 7 PM, Monday through Friday. And don\'t forget, you may speak with a representative during those hours at 1-800-GROUNDS.')
             states[tags.index('business_hours')] += 1
-        elif intent == 'espresso':
-            state = states[tags.index('espresso')]
+        elif intent == 'no_answer':
+            state = states[tags.index('no_answer')]
             if state == 0:
-                print(chatbot.prompt, 'Espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure through finely-ground coffee beans.\n\tEspresso coffee can be made with a wide variety of coffee beans and roast levels.')
+                print(chatbot.prompt, 'Sorry, I didn\'t catch that. Would you mind repeating what you said?')
             elif state == 1:
-                print(chatbot.prompt, 'I love your enthusiasm for espresso!\n\tLike I said before, espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure through finely-ground coffee beans.')
+                print(chatbot.prompt, 'Shoot, I didn\'t catch that again. Would you mind repeating that?')
             elif state == 2:
-                print(chatbot.prompt, 'Okay, well, again, espresso is a coffee-making method of Italian origin, in which a small amount of nearly boiling water is forced under pressure through finely-ground coffee beans.')
-            else:
-                print(chatbot.prompt, 'You know you can ask about other types of coffee too, right?...')
-            states[tags.index('espresso')] += 1
-        elif intent == 'cappuccino':
-            state = states[tags.index('cappuccino')]
-            if state == 0:
-                print(chatbot.prompt, 'A cappuccino is an espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.')
-            elif state == 1:
-                print(chatbot.prompt, 'Well, like I said before, a cappuccino is an espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.')
-            elif state == 2:
-                print(chatbot.prompt, 'You\'re very curious about cappuccino, huh? A cappuccino is an espresso-based coffee drink that originated in Italy, and is traditionally prepared with steamed milk foam.')
-            else:
-                print(chatbot.prompt, 'Well at this point I feel like I should just tell you about some other kind of coffee.')
-            states[tags.index('cappuccino')] += 1
-        elif intent == 'macchiato':
-            state = states[tags.index('macchiato')]
-            if state == 0:
-                print(chatbot.prompt, 'Caffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed.\n\tIn Italian, macchiato means "stained" or "spotted" so the literal translation of caffè macchiato is "stained” or “marked coffee.”')
-            elif state == 1:
-                print(chatbot.prompt, 'You demonstrate an enthusiasm for macchiato that is unlike any other I\'ve seem!\n\tCaffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed.\n\tIn Italian, macchiato means "stained" or "spotted" so the literal translation of caffè macchiato is "stained” or “marked coffee.”')
-            elif state == 2:
-                print(chatbot.prompt, 'This curiousity of your\'s if persistent! Caffè macchiato, sometimes called espresso macchiato, is an espresso coffee drink with a small amount of milk, usually foamed.\n\tIn Italian, macchiato means "stained" or "spotted" so the literal translation of caffè macchiato is "stained” or “marked coffee.”')
-            else:
-                print(chatbot.prompt, 'Why don\'t you ask me about espresso? We\'ve been talking about macchiato for a while now.')
-            states[tags.index('macchiato')] += 1
+                print(chatbot.prompt, 'Sorry, I\'m still not catching that.')
+            states[tags.index('no_answer')] += 1
         else:
             print(intent)
 
