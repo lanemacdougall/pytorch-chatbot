@@ -10,7 +10,8 @@
         },
         {"tag": "thanks",
          "patterns": ["Thanks", "Thank you", "That's helpful", "That is helpful", "You're so helpful", "You are so helpful", "Awesome, thanks", "Thanks for helping me", "Thank you for helping me", "Great, thank you!", "Wow! Thank you!", "You're awesome!", "You're so awesome!",
-              "You are so awesome", "Okay great, thank you!", "Great, thank you so much!", "That answers my question", "That answers my question, thank you", "That was helpful", "You're helpful", "You are very helpful"]
+                "You are so awesome", "Okay great, thank you!", "Great, thank you so much!", "That answers my question", "That answers my question, thank you", "That was helpful", "You're helpful", "You are very helpful",
+                "Thank ya", "Thank you chatbot", "Thanks chatbot", "Thanks so much chatbot", "Thank ya chatbot"]
         },
         {"tag": "how_are_you",
         "patterns": ["How are you?", "How are you today?", "How are you doing?", "You good?", "How you doing?", "How's it going?", "How is it going?", "How are ya?", "You doing good?", "Everything well with you today?", "How are you feeling today?",
@@ -18,7 +19,8 @@
         },
         {"tag": "bot_name",
         "patterns": ["What's your name?", "What is your name?", "What do they call you?", "What can I call you?", "And your name is?", "Your name is?", "And what is your name?", "Name?", "What do I call you?", 
-                "And who am I speaking with?", "Who am I speaking with?", "Who do I have the pleasure of speaking to?", "Who are you?", "And what do they call you?", "What would you like me to call you?", "What should I call you?"]
+                "And who am I speaking with?", "Who am I speaking with?", "Who do I have the pleasure of speaking to?", "Who are you?", "And what do they call you?", "What would you like me to call you?", "What should I call you?",
+                "What name do you go by?", "What am I to call you?", "Do you have a name?", "Name?", "Your name?", "What do you go by?"]
         },
         {"tag": "options",
          "patterns": ["How you could help me?", "How can you help me?", "What can you do?", "How you can be helpful?", "What support do you offer?", "What is your purpose?", "What your purpose?", "What do you do?", "What is your job?", "What's your job?",
@@ -26,10 +28,11 @@
               "What options do you offer?"]
         },
         {"tag": "coffee_supplies",
-         "patterns": ["What kind of coffee do you have?", "What kind of coffee do you sell?", "What do you sell?", "What do you have?", "What do you supply?", "What kind of coffee do you supply", "What does the business sell?", "What does your business sell?", "What does GroundsKeeper Coffee, Co. sell?", 
+         "patterns": ["What kind of coffee do you have?", "What kind of coffee do you sell?", "What do you sell?", "What do you have?", "What do yall have?", "What do you supply?", "What kind of coffee do you supply", "What does the business sell?", "What does your business sell?", "What does GroundsKeeper Coffee, Co. sell?", 
                 "What kind of coffee does GroundsKeeper Coffee, Co. sell?", "What kind of coffee does GroundsKeeper Coffee, Co. have?", "What kind of coffee does GroundsKeeper Coffee, Co. supply?", "What do you sell here?", "What can I buy from you?", "What do you have for me to buy?", "What does GroundsKeeper Coffee sell?",
-                "What does GroundsKeeper sell?", "What can I buy from GroundsKeeper Coffee?", "What can I buy?", "What is for sale?", "What do you have for sale?", "What's for sale?", "What do you have that I can buy?", "What's on your menu?", "What is on the menu?",
-                "Whats on the menu today?", "What coffee can I buy?", "What types of coffee can I buy?", "What coffee can I buy?"]
+                "What does GroundsKeeper sell?", "What can I buy from GroundsKeeper Coffee?", "What can I buy?", "What is for sale?", "What do you have for sale?", "What's for sale?", "What coffee do you have for sale?", "What do you have for sale right now?", "What do you have that I can buy?", "What's on your menu?", "What is on the menu?",
+                "Whats on the menu today?", "What coffee can I buy?", "What types of coffee can I buy?", "What types of coffee do you have?", "What types of coffee do you have for sale?", "What kinds of coffee can I buy?", "Kinds of coffee?", "Types of coffee?", "Types of coffee for sale?",
+                "Kinds of coffee for sale?", "What varieties of coffee do you have?", "What varieties of coffee do you sell?", "What varieties of coffee can I buy?", "What varieties do you have?", "What varieties do you sell?", "What varieties can I buy?"]
         },
         {"tag": "no_answer",
         "patterns":[]
@@ -55,13 +58,22 @@
                 "How much is my order going to cost?", "How much is this going to cost?", "How much is all of this going to cost me?"]
         },
         {"tag": "business_hours",
-        "patterns": ["What are your hours?", "When are you open?", "What times are you open?", "When can I speak to a representative?", "When can I speak with a person?", "When can I talk with a person", "When is GroundsKeeper Coffee, Co. open",
-                "What times are you open?", "What are your hours of operation?", "When are your hours?", "What time can I contact you?", "What are your business hours?", "When can I contact you?", "When can I contact a rep?", "When can I get into contact with a rep?",
-                "When can I talk with a person?", "What time can I speak with a person?", "When are you open for business?", "When am I able to contact your people?", "When can I contact a representative?"]
+        "patterns": ["What are your hours?", "When are you open?", "What times are you open?", "When is GroundsKeeper Coffee, Co. open", "What times are you open?", "What are your hours of operation?", "When are your hours?", "What are your business hours?", "When are you open for business?", 
+                "Hours", "Hours of operation", "Times", "Open times", "Give me hours of operation", "I want to know your hours", "I want to know your hours of operation", "I want to know when you are open", "When is your business open?", "When is GroundsKeeper Coffee open?",
+                "When is GroundsKeeper open?", "When is the business open?", "When are yall open?", "Give me your hours", "When are you guys open?", "What are yalls hours of operation?", "What are yalls hours?"]
+        },
+        {"tag": "rep_times",
+        "patterns": ["When can I speak to a representative?", "When can I speak with a person?", "When can I talk with a person", "What time can I contact you?", "When can I contact you?", "When can I contact a rep?", "When can I get into contact with a rep?",
+                "When can I talk with a person?", "What time can I speak with a person?", "What times can I speak with a representative?", "What times can I speak with a rep", "When am I able to contact your people?", "When can I contact a representative?",
+                "When can I speak to a real person?", "When can I talk to a real person", "When can I contact a person", "When can I contact a rep", "When can I contact a representative", "When can I call?", "What times can I call?", "Do you have specific hours when I can call?",
+                "When am I able to call?", "When am I able to contact a representative?", "When am I able to contact a rep?", "When am I able to contact a person?", "When am I able to contact a real person?", "When am I able to contact a representative",
+                "When am I able to talk with a person?", "When am I able to talk with a representative?", "When am I able to talk with a rep?", "When am I able to talk to a real person?"]
         },
         {"tag": "representative",
-        "patterns": ["Speak with a person", "Speak with a representative now", "Talk with a rep", "Talk with a representative", "Talk to a representative", "Speak with a rep", "Speak to a representative now", "I want to speak with a rep", "I want to spreak with a representative",
-                "I want to speak with a person now", "I wanna speak with a person", "Person", "Representative", "Rep", "Let me talk to a person", "Let me speak to a person", "Talk to a person now", "Talk with a representative now"]
+        "patterns": ["Speak with a person", "Speak with a person now", "Speak with a representative now", "Talk with a rep", "Talk with a representative", "Talk to a representative", "Talk to a rep", "Speak with a rep", "Speak to a representative now", "I want to speak with a rep", "I want to spreak with a representative",
+                "I want to speak with a person now", "I wanna speak with a person", "Person", "Representative", "Rep", "Let me talk to a person", "Let me speak to a person", "Talk to a person now", "Talk with a representative now", "Speak with a rep now", "I want a rep",
+                "Let me speak with a person", "Let me speak with a person now", "Let me speak with a representative now", "I'm done. I want to speak to a person", "I want to talk to a real person", "I want to speak with a real person", "Speak to a person", "I want to talk with a rep",
+                "I want to talk to a representative", "I'm ready to speak with a real person", "Put me on the phone with a real person", "Real person", "I want to speak with a real person now"]
         }
    ]
 }
