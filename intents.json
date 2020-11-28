@@ -20,9 +20,9 @@
         "context_set": ""
         },
         {"tag": "how_are_you",
-        "patterns": ["How are you?", "How are you today?", "How are you doing?", "You good?", "How you doing?", "How's it going?", "How is it going?", "How are ya?", "You doing good?", "Everything well with you today?", "How are you feeling today?",
-                "How are you feeling?", "Is everything well with you today?", "Doing well?", "How are you on this fine day", "Are you well?", "Are you doing good?", "Are you good?", "How are you chatbot?", "You doing good chatbot?", "How's it going chatbot?",
-                "How are you doing today?", "And how are you today?", "Are you doing well?", "Are you doing well today?"],
+        "patterns": ["How are you?", "How are you today?", "How are you doing?", "You good?", "How you doing?", "How's it going?", "How is it going?", "How are ya?", "You doing good?", "Everything good with you today?", "How are you feeling today?",
+                "How are you feeling?", "Is everything good with you today?", "Doing good?", "How are you on this fine day", "Are you doing good?", "Are you good?", "How are you chatbot?", "You doing good chatbot?", "How's it going chatbot?",
+                "How are you doing today?", "And how are you today?", "Are you doing good", "Are you doing well today?"],
         "responses": ["I am great, thank you!", "Better now that I'm talking to you!", "Well, my battery is a little low, but otherwise I'm doing good haha.", "You are VERY concerned for my well-being! I'm doing just fine.", "Okay enough about me, let's get down to business!"],
         "context_set": ""
         },
@@ -63,13 +63,12 @@
         "context_filter": "know_more"
         },
         {"tag": "payment",
-        "patterns": ["What do you take as payment?", "How can I pay?", "What forms of payment do you take?", "What forms of payment do you accept?", "Do you take cash?", "Do you accept cash?", "Do you take credit?", "Do you accept credit?", "Do you accept credit cards?", 
-                "Do you accept checks?", "Do you take check?", "Do you take checks?", "Can I pay with a check?", "Can I pay with cash?", "Can I pay with credit?", "Can I pay with a credit card?", "Can I write you a check?", "Can I give you cash?", "Will you accept my credit card?", "Is card okay?", "Is cash okay?", "Is check okay?",
-                "Y'all take cash?", "Yall take credit?", "Yall take credit cards?", "Yall take check?", "Accept cash?", "Accept card?", "Accept credit?", "Accept check?", "Yall take card?", "You take card?", "You accept cash?",
-                "You take check?", "You take credit?", "You take cash?", "I want to pay with cash", "I want to pay with credit", "I wanna pay with card", "I wanna pay with check", "I want to pay with card", "I want to pay with check", "Do you accept PayPal?", "Do you take PayPal?", "You take PayPal?", 
-                "Can I pay with PayPal?", "Can I give you PayPal?", "Do you accept PayPal?", "Are you fine with PayPal?", "I assume that you take cash", "I assume that you take card", "I assume that you accept credit", "I assume that you accept check", "I assume that you accept PayPal",
-                "Do you accept CashApp?", "Do you take CashApp?", "You take CashApp?", "Can I pay with CashApp?", "Can I give you CashApp?", "Do you accept CashApp", "Are you fine with CashApp?"],
-        "responses": ["We accept cash, personal checks, credit, PayPal, and CashApp.", "Sorry, I thought I already told you! I apologize! We accept cash, personal checks, credit, PayPal, and CashApp.", "I thought I already told you! We accept cash, personal checks, credit, PayPal, and CashApp."],
+        "patterns": ["What do you take as payment?", "How can I pay?", "What forms of payment do you take?", "What forms of payment do you accept?", "Do you take cash?", "Do you accept cash?", "Do you take debit card?", "Do you accept debit card?", "Do you take credit?", "Do you accept credit cards?", 
+                "Do you accept checks?", "Do you take check?", "Do you take checks?", "Can I pay with a check?", "Can I pay with cash?", "Can I pay with a credit card?", "Can I write you a check?", "Can I give you cash?", "Is card okay?", "Is cash okay?", "Is check okay?",
+                "Y'all take cash?", "Yall take credit cards?", "Yall take check?", "Accept cash?", "Accept card?", "Accept credit?", "Yall take card?", "You take card?", "You accept cash?", "Can I pay with debit card?", "Is debit card okay?", "I want to pay with debit card", "I wanna pay with debit card",
+                "You take check?", "You take credit?", "I want to pay with cash", "I want to pay with credit", "I wanna pay with card", "I want to pay with card", "I want to pay with check", "Do you accept PayPal?", "Do you take PayPal?", "You take PayPal?", "I wanna pay with cash",
+                "Can I pay with PayPal?", "Can I give you PayPal?", "Do you accept PayPal?", "I assume that you take cash", "I assume that you take card", "I assume that you accept credit", "I assume that you accept check", "I assume that you accept PayPal", "Do you accept CashApp?", "Can I pay with CashApp?"],
+        "responses": ["We accept cash, personal checks, credit, PayPal, and CashApp.", "Sorry, I thought I already told you! I apologize! We accept debit, credit, PayPal, and CashApp.", "I thought I already told you! We accept cash, personal checks, credit, PayPal, and CashApp."],
         "context_set": ""
         },
         {"tag": "shipping_time",
