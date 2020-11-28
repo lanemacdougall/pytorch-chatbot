@@ -6,7 +6,7 @@
         "context_set": ""
         },
         {"tag": "goodbye",
-        "patterns": ["Bye", "Bye bye", "See you later", "Nice talking with you!", "Goodbye", "Nice chatting with you", "Until next time", "Till next time", "Adios", "Catch you later", "See ya", "Later!", "See you later", 
+        "patterns": ["Bye", "Bye bye", "See you later", "Nice talking with you!", "Goodbye", "Nice chatting with you", "Until next time", "Till next time", "Catch you later", "See ya", "Later!", "See you later", 
                 "Bye ChatBot", "Later ChatBot", "See ya ChatBot", "I'm going to head out", "I'm gonna head out", "Aight I'm gonna head out", "Catch ya later", "Im out of here", "I'm outta here", "I am going to head out", "I'm out of here"],
         "context_set": ""
         },

@@ -23,8 +23,13 @@ def preprocess():
             all_words.extend(tok_pattern)
             xy_data.append((tok_pattern, tag))
 
-    ignore = ['.', ',', ';', ':', '?', '!', '/', '[', ']', '{', '}', '(', ')']
-    all_words = [nltk_utility.stem(word) for word in all_words if word not in ignore]
+    punct = ['.', ',', ';', ':', '?', '!', '/', '[', ']', '{', '}', '(', ')']
+    stop_words  = ['ourselves', 'between', 'but', 'again', 'there', 'once', 'during', 'out', 'very', 'with', 'they', 'an', 'be', 'some', 'for', 'do', 'its', 'such', 'into', 'of', 'most', 'itself',
+                'other', 'off', 'is', 'am', 'or', 'who', 'as', 'from', 'him', 'each', 'the', 'themselves', 'until', 'below', 'are', 'we', 'these', 'his', 'through', 'don', 'nor', 'were', 'her',
+                'himself', 'this', 'down', 'should', 'our', 'their', 'while', 'above', 'both', 'up', 'to', 'ours', 'had', 'she', 'all', 'at', 'any', 'before', 'them', 'same', 'and', 'been', 'in', 'will', 
+                'on', 'does', 'then', 'that', 'because', 'over', 'so', 'did', 'under', 'he', 'herself', 'just', 'too', 'only', 'myself', 'which', 'those', 'after', 'few', 'whom', 'being', 'if', 'theirs',
+                'against', 'a', 'by', 'doing', 'further', 'was', 'here', 'than', 'well']
+    all_words = [nltk_utility.stem(word) for word in all_words if word not in punct and word not in stop_words]
 
     #print(all_words)
     all_words = sorted(set(all_words))

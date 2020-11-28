@@ -1,6 +1,7 @@
 import nltk
 from nltk.stem import SnowballStemmer
 import numpy as np
+import re
 #nltk.download('punkt') # Requires only one run
 
 def tokenize(sentence):
@@ -8,6 +9,8 @@ def tokenize(sentence):
 
 def stem(word):
     stemmer = SnowballStemmer(language="english")
+    if 'hey' in word.lower() or 'hi' in word.lower():
+        return 'hi'
     return stemmer.stem(word.lower())
 
 def bag_of_words(tok_sentence, all_words):

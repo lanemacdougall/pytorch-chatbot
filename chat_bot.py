@@ -69,8 +69,9 @@ class ChatBot():
         #print(predictions)
 
         intent_prob = probs[0][predicted.item()]
+        print(intent)
+        print(float(intent_prob))
         if intent_prob > 0.75:
-            #print(float(intent_prob))
             return intent
         else:
             return 'fail'
