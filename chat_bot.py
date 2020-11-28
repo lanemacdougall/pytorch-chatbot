@@ -38,6 +38,7 @@ class ChatBot():
         self.tags = tags
         self.prompt = 'Bot: '
         self.greeting = 'Welcome to GroundsKeeper Coffee, Co.! My name is ' + self.name + '.'
+        self.context = ''
     
     def greet(self):
         print(self.greeting)
@@ -55,10 +56,18 @@ class ChatBot():
         bag = torch.from_numpy(bag)
 
         output = self.model(bag)
+        #print(output)
+        #for result in output:
+        #    print(result)
         _, predicted = torch.max(output, dim=1)
+        #print(torch.max(output, dim=1))
+
         intent = self.tags[predicted.item()]
         
         probs = torch.softmax(output, dim=1)
+        #predictions = [result in output if probs[0][result.item()] > 0.75]
+        #print(predictions)
+
         intent_prob = probs[0][predicted.item()]
         if intent_prob > 0.75:
             #print(float(intent_prob))
@@ -143,7 +152,7 @@ def chat():
         elif intent == 'options':
             state = states[tags.index('options')]
             if state == 0:
-                print(chatbot.prompt, 'I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\n\tI am here to answer any of your questions concerning our business.\n\tI am also able to answer your general coffee-related queries.')
+                print(chatbot.prompt, 'I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\n\tI am here to answer any of your questions concerning our business.')
             elif state == 1:
                 print(chatbot.prompt, 'Well, as I said before, I\'m here to answer any of your questions concerning our business!')
             elif state == 2:
@@ -154,14 +163,23 @@ def chat():
         elif intent == 'coffee_supplies':
             state = states[tags.index('coffee_supplies')]
             if state == 0:
-                print(chatbot.prompt, 'We offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
+                print(chatbot.prompt, 'We offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tCurrently, we have Ethiopian, Colombian, and Guatemalan.\n\tIf you would like to know more about these varieties, I would love to give you move information!')
             elif state == 1:
-                print(chatbot.prompt, 'I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tWe primarily sell Aribica beans grown in Central and South America; however, we also sell a few Ethiopian coffee species.')
+                print(chatbot.prompt, 'I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tRight now, we have Ethiopian, Colombian, and Guatemalan.\n\tIf you would like to know more about these varieties, I would love to give you move information!')
             elif state == 2:
-                print(chatbot.prompt, 'You don\'t remember me telling you? Basically just coffee coffee.')
+                print(chatbot.prompt, 'You don\'t remember me telling you? We currently have Ethiopian, Colombian, and Guatemalan.\n\tAgain, if you would like to know more about these varieties, I would love to give you move information!')
             else:
-                print(chatbot.prompt, 'Coffee. But you\'re starting to strike me as more of a Starbucks type of person...')
+                print(chatbot.prompt, 'We have Ethiopian, Colombian, and Guatamalan.\n\tAnd as I said before, if you would like to know more about these varieties, I would love to give you move information!')
             states[tags.index('coffee_supplies')] += 1
+        elif intent == 'coffee_info':
+            state = states[tags.index('coffee_info')]
+            if state == 0:
+                print(chatbot.prompt, 'Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor.')
+            elif state == 1:
+                print(chatbot.prompt, 'Well, as I said before, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor.')
+            else:
+                print(chatbot.prompt, 'Again, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor.')
+            states[tags.index('coffee_info')] += 1
         elif intent == 'payment':
             state = states[tags.index('payment')]
             if state == 0:
@@ -194,19 +212,34 @@ def chat():
         elif intent == 'business_hours':
             state = states[tags.index('business_hours')]
             if state == 0:
-                print(chatbot.prompt, 'We are open from 5 AM to 7 PM, Monday through Friday. You may speak with a representative during those hours at 1-800-GROUNDS.')
+                print(chatbot.prompt, 'We are open from 5 AM to 7 PM, Monday through Friday.')
             else:
-                print(chatbot.prompt, 'Like I said earlier, we\'re open from 5 AM to 7 PM, Monday through Friday. And don\'t forget, you may speak with a representative during those hours at 1-800-GROUNDS.')
+                print(chatbot.prompt, 'Like I said earlier, we\'re open from 5 AM to 7 PM, Monday through Friday.')
             states[tags.index('business_hours')] += 1
+        elif intent == 'rep_times':
+            state = states[tags.index('rep_times')]
+            if state == 0:
+                print(chatbot.prompt, 'You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.')
+            else:
+                print(chatbot.prompt, 'Like I said earlier, you may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.')
+            states[tags.index('rep_times')] += 1
+        elif intent == 'representative':
+            state = states[tags.index('representative')]
+            if state == 0:
+                print(chatbot.prompt, 'Excellent! Our representatives are the best in the business. You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.')
+            else:
+                print(chatbot.prompt, 'I\'m so glad that you would like to speak with a representative. You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.')
+            states[tags.index('representative')] += 1
         elif intent == 'no_answer':
             state = states[tags.index('no_answer')]
             if state == 0:
-                print(chatbot.prompt, 'Sorry, I didn\'t catch that. Would you mind repeating what you said?')
+                print(chatbot.prompt, 'Sorry, did you mean to say something?')
             elif state == 1:
-                print(chatbot.prompt, 'Shoot, I didn\'t catch that again. Would you mind repeating that?')
-            elif state == 2:
-                print(chatbot.prompt, 'Sorry, I\'m still not catching that.')
+                print(chatbot.prompt, 'Just up your questions and I\'ll be happy to answer them!')
+            else:
+                print(chatbot.prompt, 'Hmmm, I\'m just seeing that you\'re entering blanks... Is there an issue on your end? All seems to be good on this end!')
             states[tags.index('no_answer')] += 1
+        #TODO: Get rid of the below 
         else:
             print(intent)
 
