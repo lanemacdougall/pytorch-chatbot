@@ -3,23 +3,27 @@
          "patterns": ["Hi", "Hi there", "Hello there", "Is anyone there?", "Hey", "Heyyy", "Hiii", "Hiya", "Hello", "Hellooo", "Whats up", "What is up?", "Wassup", "Wazzup", "Sup", "Yo", "Yooo", 
                 "Good morning", "Good afternoon", "Good evening", "Someone here?", "Hey ChatBot", "Hi ChatBot", "Hello ChatBot", "Hey hey hey", "Hey hey", "Greetings", "I am here and ready to talk",
                 "I am here", "I would like to talk to you", "I would like to talk with you"],
+        "responses": ["Hello! How can I be of assistance?", "Hello again! I'm still happy to be of assistance to you.", "You really enjoy saying hello, huh? Well, so do I! Hello hello!", "Still saying hello? Let's start getting to business! How can I help you?"],
         "context_set": ""
         },
         {"tag": "goodbye",
         "patterns": ["Bye", "Bye bye", "See you later", "Nice talking with you!", "Goodbye", "Nice chatting with you", "Until next time", "Till next time", "Catch you later", "See ya", "Later!", "See you later", 
                 "Bye ChatBot", "Later ChatBot", "See ya ChatBot", "I'm going to head out", "I'm gonna head out", "Aight I'm gonna head out", "Catch ya later", "Im out of here", "I'm outta here", "I am going to head out", "I'm out of here"],
+        "responses": ["Bye, come back again soon.", "I agree, goodbyes are hard, but feel free to come back any time!", "Well I hope third time is the charm. See ya!", "Bye!"],
         "context_set": ""
         },
         {"tag": "thanks",
         "patterns": ["Thanks", "Thank you", "That's helpful", "That is helpful", "You're so helpful", "You are so helpful", "Awesome, thanks", "Thanks for helping me", "Thank you for helping me", "Great, thank you!", "Wow! Thank you!", "You're awesome!", "You're so awesome!",
                 "You are so awesome", "Okay great, thank you!", "Great, thank you so much!", "That answers my question", "That answers my question, thank you", "That was helpful", "You're helpful", "You are very helpful",
                 "Thank ya", "Thank you chatbot", "Thanks chatbot", "Thanks so much chatbot", "Thank ya chatbot"],
+        "responses": ["Happy to help!", "You're so polite! I am here to serve.", "I think that I should be the one thanking you!"],
         "context_set": ""
         },
         {"tag": "how_are_you",
         "patterns": ["How are you?", "How are you today?", "How are you doing?", "You good?", "How you doing?", "How's it going?", "How is it going?", "How are ya?", "You doing good?", "Everything well with you today?", "How are you feeling today?",
                 "How are you feeling?", "Is everything well with you today?", "Doing well?", "How are you on this fine day", "Are you well?", "Are you doing good?", "Are you good?", "How are you chatbot?", "You doing good chatbot?", "How's it going chatbot?",
                 "How are you doing today?", "And how are you today?", "Are you doing well?", "Are you doing well today?"],
+        "responses": ["I am great, thank you!", "Better now that I'm talking to you!", "Well, my battery is a little low, but otherwise I'm doing good haha.", "You are VERY concerned for my well-being! I'm doing just fine.", "Okay enough about me, let's get down to business!"],
         "context_set": ""
         },
         {"tag": "bot_name",
@@ -32,6 +36,8 @@
         "patterns": ["How you could help me?", "How can you help me?", "What can you do?", "How you can be helpful?", "What support do you offer?", "What is your purpose?", "What your purpose?", "What do you do?", "What is your job?", "What's your job?",
                 "What are my options?", "What options do you offer?", "What options do you have?", "What are your options?", "Options?", "What are you able to do?", "What can you do for me?", "Choices?", "What are my choices?", "What choices do you offer?", "What choices do you offer?",
                 "What options do you offer?"],
+        "responses": ["I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\n\tI am here to answer any of your questions concerning our business.", "Well, as I said before, I'm here to answer any of your questions concerning our business!", "Like I said the other two times, I can answer any question you have about GroundsKeeper Coffee Supply, Co.",
+                "Well, I can answer questions other than just this one! Haha. Kidding, of course. But I am curious about other questions that you might have."],
         "context_set": ""
         },
         {"tag": "coffee_supplies",
@@ -40,6 +46,10 @@
                 "What does GroundsKeeper sell?", "What can I buy from GroundsKeeper Coffee?", "What can I buy?", "What is for sale?", "What do you have for sale?", "What's for sale?", "What coffee do you have for sale?", "What do you have for sale right now?", "What do you have that I can buy?", "What's on your menu?", "What is on the menu?",
                 "Whats on the menu today?", "What coffee can I buy?", "What types of coffee can I buy?", "What types of coffee do you have?", "What types of coffee do you have for sale?", "What kinds of coffee can I buy?", "Kinds of coffee?", "Types of coffee?", "Types of coffee for sale?",
                 "Kinds of coffee for sale?", "What varieties of coffee do you have?", "What varieties of coffee do you sell?", "What varieties of coffee can I buy?", "What varieties do you have?", "What varieties do you sell?", "What varieties can I buy?"],
+        "responses": ["We offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tCurrently, we have Ethiopian, Colombian, and Guatemalan.\n\tIf you would like to know more about these varieties, I would love to give you move information!",
+                "I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tRight now, we have Ethiopian, Colombian, and Guatemalan.\n\tIf you would like to know more about these varieties, I would love to give you move information!",
+                "You don't remember me telling you? We currently have Ethiopian, Colombian, and Guatemalan.\n\tAgain, if you would like to know more about these varieties, I would love to give you move information!",
+                "We have Ethiopian, Colombian, and Guatamalan.\n\tAnd as I said before, if you would like to know more about these varieties, I would love to give you move information!"],
         "context_set": "know_more"
         },
         {"tag": "coffee_info",
@@ -47,10 +57,10 @@
                 "Give me more info", "I want to know more information", "I want to know more info", "Yea, give me more information", "Sure, I would like to know more", "I would like to know more", "Please tell me more", "I would like more information", "I would like more info", "Please give me more information", "Please give me more info",
                 "Tell me more info about your coffee", "Give me more information on your coffee", "Tell me more about your coffee", "Yea tell me more", "I am down to know more", "I want to know more about your coffee", "Yea tell me more about your coffee varieties",
                 "More info on coffee", "Tell me more about your coffee", "Tell me more about the types of coffee you have", "Please give me more information chatbot", "I want to know more about your coffee types", "I want to know more about your coffee varieties"],
+        "responses": ["Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor.",
+                "Well, as I said before, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor.",
+                "Again, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor."],
         "context_filter": "know_more"
-        },
-        {"tag": "no_answer",
-        "patterns":[]
         },
         {"tag": "payment",
         "patterns": ["What do you take as payment?", "How can I pay?", "What forms of payment do you take?", "What forms of payment do you accept?", "Do you take cash?", "Do you accept cash?", "Do you take credit?", "Do you accept credit?", "Do you accept credit cards?", 
@@ -59,6 +69,7 @@
                 "You take check?", "You take credit?", "You take cash?", "I want to pay with cash", "I want to pay with credit", "I wanna pay with card", "I wanna pay with check", "I want to pay with card", "I want to pay with check", "Do you accept PayPal?", "Do you take PayPal?", "You take PayPal?", 
                 "Can I pay with PayPal?", "Can I give you PayPal?", "Do you accept PayPal?", "Are you fine with PayPal?", "I assume that you take cash", "I assume that you take card", "I assume that you accept credit", "I assume that you accept check", "I assume that you accept PayPal",
                 "Do you accept CashApp?", "Do you take CashApp?", "You take CashApp?", "Can I pay with CashApp?", "Can I give you CashApp?", "Do you accept CashApp", "Are you fine with CashApp?"],
+        "responses": ["We accept cash, personal checks, credit, PayPal, and CashApp.", "Sorry, I thought I already told you! I apologize! We accept cash, personal checks, credit, PayPal, and CashApp.", "I thought I already told you! We accept cash, personal checks, credit, PayPal, and CashApp."],
         "context_set": ""
         },
         {"tag": "shipping_time",
@@ -66,6 +77,7 @@
                 "How about shipping?", "How long will it take to ship my order?", "How long will shipping take?", "How long will it take for my order to arrive?", "How about ship time?", "How long is it gonna take to ship?", 
                 "How long is shipping going to take?", "What about shipping?", "How long will it take for my order to be delivered?", "When will it get delivered?", "When will it ship?", "When will my order get to me?",
                 "When will my coffee get here?", "When will my coffee arrive?", "How long is this gonna take?" ],
+        "responses": ["Shipping will take approximately 2 - 6 days, depending on your location.", "It depends on your location, but typically it takes 2 - 6 days.", "Like I mentioned earlier, shipping will take approximately 2 - 6 days, depending on your location."],
         "context_set": ""
         },
         {"tag": "shipping_cost",
@@ -73,12 +85,14 @@
                 "How about shipping cost?", "How much will it cost to ship my order?", "How much will shipping cost?", "How about ship cost?", "How much is it gonna cost to ship?", 
                 "How much is shipping going to cost?", "What about shipping cost?", "How much will it cost for my order to be delivered?", "How much will my coffee cost?", "What is this all gonna cost me?", "What's this going to cost me?",
                 "How much is my order going to cost?", "How much is this going to cost?", "How much is all of this going to cost me?"],
+        "responses": ["Shipping cost depends entirely on the size of the shipment and your location.", "It depends on your location and the size of your order, but I promise it's worth it!", "Like I mentioned earlier, shipping cost depends entirely on the size of the shipment and your location."],
         "context_set": ""
         },
         {"tag": "business_hours",
         "patterns": ["What are your hours?", "When are you open?", "What times are you open?", "When is GroundsKeeper Coffee, Co. open", "What times are you open?", "What are your hours of operation?", "When are your hours?", "What are your business hours?", "When are you open for business?", 
                 "Hours", "Hours of operation", "Times", "Open times", "Give me hours of operation", "I want to know your hours", "I want to know your hours of operation", "I want to know when you are open", "When is your business open?", "When is GroundsKeeper Coffee open?",
                 "When is GroundsKeeper open?", "When is the business open?", "When are yall open?", "Give me your hours", "When are you guys open?", "What are yalls hours of operation?", "What are yalls hours?"],
+        "responses": ["We are open from 5 AM to 7 PM, Monday through Friday.", "Like I said earlier, we're open from 5 AM to 7 PM, Monday through Friday."],
         "context_set": ""
         },
         {"tag": "rep_times",
@@ -87,6 +101,7 @@
                 "When can I speak to a real person?", "When can I talk to a real person", "When can I contact a person", "When can I contact a rep", "When can I contact a representative", "When can I call?", "What times can I call?", "Do you have specific hours when I can call?",
                 "When am I able to call?", "When am I able to contact a representative?", "When am I able to contact a rep?", "When am I able to contact a person?", "When am I able to contact a real person?", "When am I able to contact a representative",
                 "When am I able to talk with a person?", "When am I able to talk with a representative?", "When am I able to talk with a rep?", "When am I able to talk to a real person?"],
+        "responses": ["You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.", "Like I said earlier, you may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS."],
         "context_set": "rep"
         },
         {"tag": "representative",
@@ -94,6 +109,7 @@
                 "I want to speak with a person now", "I wanna speak with a person", "Person", "Representative", "Rep", "Let me talk to a person", "Let me speak to a person", "Talk to a person now", "Talk with a representative now", "Speak with a rep now", "I want a rep",
                 "Let me speak with a person", "Let me speak with a person now", "Let me speak with a representative now", "I'm done. I want to speak to a person", "I want to talk to a real person", "I want to speak with a real person", "Speak to a person", "I want to talk with a rep",
                 "I want to talk to a representative", "I'm ready to speak with a real person", "Put me on the phone with a real person", "Real person", "I want to speak with a real person now"],
+        "responses": ["Excellent! Our representatives are the best in the business. You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.", "I'm so glad that you would like to speak with a representative. You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS."],
         "context_filter": "rep"
         }
    ]
