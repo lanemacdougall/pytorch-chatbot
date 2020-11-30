@@ -24,7 +24,7 @@
                 "How are you feeling?", "Is everything good with you today?", "Doing good?", "How are you on this fine day", "Are you doing good?", "Are you good?", "How are you chatbot?", "You doing good chatbot?", "How's it going chatbot?",
                 "How are you doing today?", "And how are you today?", "Are you doing good", "Are you doing well today?"],
         "responses": ["I am great, thank you!", "Better now that I'm talking to you!", "Well, my battery is a little low, but otherwise I'm doing good haha.", "You are VERY concerned for my well-being! I'm doing just fine.", "Okay enough about me, let's get down to business!"],
-        "context_set": ""
+        "context_set": "how_is_user????"
         },
         {"tag": "bot_name",
         "patterns": ["What's your name?", "What is your name?", "What do they call you?", "What can I call you?", "And your name is?", "Your name is?", "And what is your name?", "Name?", "What do I call you?", 
@@ -36,8 +36,10 @@
         "patterns": ["How you could help me?", "How can you help me?", "What can you do?", "How you can be helpful?", "What support do you offer?", "What is your purpose?", "What your purpose?", "What do you do?", "What is your job?", "What's your job?",
                 "What are my options?", "What options do you offer?", "What options do you have?", "What are your options?", "Options?", "What are you able to do?", "What can you do for me?", "Choices?", "What are my choices?", "What choices do you offer?", "What choices do you offer?",
                 "What options do you offer?"],
-        "responses": ["I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\n\tI am here to answer any of your questions concerning our business.", "Well, as I said before, I'm here to answer any of your questions concerning our business!", "Like I said the other two times, I can answer any question you have about GroundsKeeper Coffee Supply, Co.",
-                "Well, I can answer questions other than just this one! Haha. Kidding, of course. But I am curious about other questions that you might have."],
+        "responses": ["I am the virtual spokesperson for GroundsKeeper Coffee Supply, Co.!\nI am here to answer questions concerning our business' products, our hours of operation, the availability of our customer service representatives, shipping, and payment.\nAlso, whenever you're ready, I am here to take your order. So just let me know when you're ready to see the varieties of coffee we currently offer!\nIf you ever forget these options and want a reminder, just let me know!", 
+                "Well, as I said before, I am here to answer questions concerning our business' products, our hours of operation, the availability of our customer service representatives, shipping, and payment.\nAlso, whenever you're ready, I am here to take your order. So just let me know when you're ready to see the varieties of coffee we currently offer!\nIf you ever forget these options and want a reminder, just let me know!", 
+                "Like I said the other two times, I am here to answer questions concerning our business' products, our hours of operation, the availability of our customer service representatives, shipping, and payment.\nAlso, whenever you're ready, I am here to take your order. So just let me know when you're ready to see the varieties of coffee we currently offer!\nIf you ever forget these options and want a reminder, just let me know!",
+                "Well, I can answer questions other than just this one! Haha. Kidding, of course. I am here to answer questions concerning our business' products, our hours of operation, the availability of our customer service representatives, shipping, and payment.\nAlso, whenever you're ready, I am here to take your order. So just let me know when you're ready to see the varieties of coffee we currently offer!\nIf you ever forget these options and want a reminder, just let me know!"],
         "context_set": ""
         },
         {"tag": "coffee_supplies",
@@ -46,10 +48,10 @@
                 "What does GroundsKeeper sell?", "What can I buy from GroundsKeeper Coffee?", "What can I buy?", "What is for sale?", "What do you have for sale?", "What's for sale?", "What coffee do you have for sale?", "What do you have for sale right now?", "What do you have that I can buy?", "What's on your menu?", "What is on the menu?",
                 "Whats on the menu today?", "What coffee can I buy?", "What types of coffee can I buy?", "What types of coffee do you have?", "What types of coffee do you have for sale?", "What kinds of coffee can I buy?", "Kinds of coffee?", "Types of coffee?", "Types of coffee for sale?",
                 "Kinds of coffee for sale?", "What varieties of coffee do you have?", "What varieties of coffee do you sell?", "What varieties of coffee can I buy?", "What varieties do you have?", "What varieties do you sell?", "What varieties can I buy?"],
-        "responses": ["We offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tCurrently, we have Ethiopian, Colombian, and Guatemalan.\n\tIf you would like to know more about these varieties, I would love to give you move information!",
-                "I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\n\tRight now, we have Ethiopian, Colombian, and Guatemalan.\n\tIf you would like to know more about these varieties, I would love to give you move information!",
-                "You don't remember me telling you? We currently have Ethiopian, Colombian, and Guatemalan.\n\tAgain, if you would like to know more about these varieties, I would love to give you move information!",
-                "We have Ethiopian, Colombian, and Guatamalan.\n\tAnd as I said before, if you would like to know more about these varieties, I would love to give you move information!"],
+        "responses": ["We offer large-scale coffee bean supplies in a variety of coffee bean types.\nCurrently, we have Ethiopian, Colombian, and Guatemalan.\nIf you would like to know more about these varieties, I would love to give you move information!",
+                "I so appreciate your curiousity! Like I said before, we offer large-scale coffee bean supplies in a variety of coffee bean types.\nRight now, we have Ethiopian, Colombian, and Guatemalan.\nIf you would like to know more about these varieties, I would love to give you move information!",
+                "You don't remember me telling you? We currently have Ethiopian, Colombian, and Guatemalan.\nAgain, if you would like to know more about these varieties, I would love to give you move information!",
+                "We have Ethiopian, Colombian, and Guatamalan.\nAnd as I said before, if you would like to know more about these varieties, I would love to give you move information!"],
         "context_set": "know_more"
         },
         {"tag": "coffee_info",
@@ -57,10 +59,35 @@
                 "Give me more info", "I want to know more information", "I want to know more info", "Yea, give me more information", "Sure, I would like to know more", "I would like to know more", "Please tell me more", "I would like more information", "I would like more info", "Please give me more information", "Please give me more info",
                 "Tell me more info about your coffee", "Give me more information on your coffee", "Tell me more about your coffee", "Yea tell me more", "I am down to know more", "I want to know more about your coffee", "Yea tell me more about your coffee varieties",
                 "More info on coffee", "Tell me more about your coffee", "Tell me more about the types of coffee you have", "Please give me more information chatbot", "I want to know more about your coffee types", "I want to know more about your coffee varieties"],
-        "responses": ["Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor.",
-                "Well, as I said before, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor.",
-                "Again, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\n\tColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\n\tGuatemalan coffee is known for being full-bodied, strong, and full of flavor."],
-        "context_filter": "know_more"
+        "responses": ["Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\nColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\nGuatemalan coffee is known for being full-bodied, strong, and full of flavor.\nNow that you've heard a little bit more about these varieties, can I take your order?",
+                "Well, as I said before, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\nColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\nGuatemalan coffee is known for being full-bodied, strong, and full of flavor.\nNow that you've heard a little bit more about these varieties, can I take your order?",
+                "Again, Ethiopia is the birthplace of coffee. The coffee is known for its deep flavor, notes of chocolate, and floral aroma.\nColombian coffee is known for being medium-bodied and rich while also having a distinct citrus-like acidity.\nGuatemalan coffee is known for being full-bodied, strong, and full of flavor.\nNow that you've heard a little bit more about these varieties, can I take your order?"],
+        "context_filter": "know_more",
+        "context_set": "select_variety"
+        },
+        {"tag": "colombian",
+        "patterns": ["Colombian"],
+        "responses": ["Wonderful. I have put you down for an order of Colombian. How many pounds will this order be?"],
+        "context_filter": "select_variety",
+        "context_set": "select_weight"
+        },
+        {"tag": "ethiopian",
+        "patterns": ["Ethiopian"],
+        "responses": ["Wonderful. I have put you down for an order of Ethiopian. How many pounds will this order be?"],
+        "context_filter": "select_variety",
+        "context_set": "select_weight"
+        },
+        {"tag": "guatemalan",
+        "patterns": ["Guatemalan"],
+        "responses": ["Wonderful. I have put you down for an order of Guatemalan. How many pounds will this order be?"],
+        "context_filter": "select_variety",
+        "context_set": "select_weight"
+        },
+        {"tag": "select_weight",
+        "patterns": [],
+        "responses": ["Perfect. I have your order recorded. Please feel free to proceed to our website's checkout page at any time to complete your order."],
+        "context_filter": "select_weight",
+        "context_set": ""
         },
         {"tag": "payment",
         "patterns": ["What do you take as payment?", "How can I pay?", "What forms of payment do you take?", "What forms of payment do you accept?", "Do you take cash?", "Do you accept cash?", "Do you take debit card?", "Do you accept debit card?", "Do you take credit?", "Do you accept credit cards?", 
@@ -101,7 +128,7 @@
                 "When am I able to call?", "When am I able to contact a representative?", "When am I able to contact a rep?", "When am I able to contact a person?", "When am I able to contact a real person?", "When am I able to contact a representative",
                 "When am I able to talk with a person?", "When am I able to talk with a representative?", "When am I able to talk with a rep?", "When am I able to talk to a real person?"],
         "responses": ["You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.", "Like I said earlier, you may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS."],
-        "context_set": "rep"
+        "context_set": ""
         },
         {"tag": "representative",
         "patterns": ["Speak with a person", "Speak with a person now", "Speak with a representative now", "Talk with a rep", "Talk with a representative", "Talk to a representative", "Talk to a rep", "Speak with a rep", "Speak to a representative now", "I want to speak with a rep", "I want to spreak with a representative",
@@ -109,7 +136,7 @@
                 "Let me speak with a person", "Let me speak with a person now", "Let me speak with a representative now", "I'm done. I want to speak to a person", "I want to talk to a real person", "I want to speak with a real person", "Speak to a person", "I want to talk with a rep",
                 "I want to talk to a representative", "I'm ready to speak with a real person", "Put me on the phone with a real person", "Real person", "I want to speak with a real person now"],
         "responses": ["Excellent! Our representatives are the best in the business. You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS.", "I'm so glad that you would like to speak with a representative. You may speak with a representative from 5 AM to 7 PM, Monday through Saturday at 1-800-GROUNDS."],
-        "context_filter": "rep"
+        "context_set": ""
         }
    ]
 }

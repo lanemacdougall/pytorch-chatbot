@@ -20,4 +20,3 @@ def bag_of_words(tok_sentence, all_words):
         if word in tok_sentence:
             bag_of_words[index] = 1.0
     return bag_of_words
-

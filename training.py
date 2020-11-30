@@ -23,15 +23,16 @@ def preprocess():
             all_words.extend(tok_pattern)
             xy_data.append((tok_pattern, tag))
 
+    # Ignore punctuation
     punct = ['.', ',', ';', ':', '?', '!', '/', '[', ']', '{', '}', '(', ')']
+
+    # Exclude stop words from consideration in the bag of words; stop words are unable to influence the network's predictions 
     stop_words  = ['ourselves', 'between', 'but', 'again', 'there', 'once', 'during', 'out', 'very', 'they', 'an', 'be', 'some', 'for', 'its', 'such', 'into', 'of', 'most', 'itself',
                 'other', 'off', 'is', 'am', 'or', 'who', 'as', 'him', 'each', 'the', 'themselves', 'until', 'below', 'we', 'these', 'his', 'through', 'don\'t', 'won\'t', 'nor', 'were', 'her',
                 'himself', 'this', 'down', 'should', 'our', 'their', 'while', 'above', 'both', 'up', 'to', 'ours', 'she', 'all', 'at', 'any', 'before', 'them', 'same', 'and', 'been', 'in', 'will', 
                 'on', 'does', 'then', 'that', 'because', 'over', 'so', 'did', 'under', 'he', 'herself', 'just', 'too', 'only', 'myself', 'which', 'those', 'after', 'few', 'whom', 'being', 'if', 'theirs',
                 'against', 'a', 'by', 'doing', 'further', 'was', 'here', 'than', 'well', 'cannot', 'can\'t', 'found', 'would', 'own', 'can', 'what', 'give', 'given', 'nice', 'not', 'also']
     all_words = [nltk_utility.stem(word) for word in all_words if word not in punct and word.lower() not in stop_words]
-
-    #print(all_words)
     all_words = sorted(set(all_words))
     tags = sorted(tags)
 
