@@ -24,7 +24,7 @@
                 "How are you feeling?", "Is everything good with you today?", "Doing good?", "How are you on this fine day", "Are you doing good?", "Are you good?", "How are you chatbot?", "You doing good chatbot?", "How's it going chatbot?",
                 "How are you doing today?", "And how are you today?", "Are you doing good", "Are you doing well today?"],
         "responses": ["I am great, thank you!", "Better now that I'm talking to you!", "Well, my battery is a little low, but otherwise I'm doing good haha.", "You are VERY concerned for my well-being! I'm doing just fine.", "Okay enough about me, let's get down to business!"],
-        "context_set": "how_is_user????"
+        "context_set": ""
         },
         {"tag": "bot_name",
         "patterns": ["What's your name?", "What is your name?", "What do they call you?", "What can I call you?", "And your name is?", "Your name is?", "And what is your name?", "Name?", "What do I call you?", 
@@ -82,12 +82,6 @@
         "responses": ["Wonderful. I have put you down for an order of Guatemalan. How many pounds will this order be?"],
         "context_filter": "select_variety",
         "context_set": "select_weight"
-        },
-        {"tag": "select_weight",
-        "patterns": [],
-        "responses": ["Perfect. I have your order recorded. Please feel free to proceed to our website's checkout page at any time to complete your order."],
-        "context_filter": "select_weight",
-        "context_set": ""
         },
         {"tag": "payment",
         "patterns": ["What do you take as payment?", "How can I pay?", "What forms of payment do you take?", "What forms of payment do you accept?", "Do you take cash?", "Do you accept cash?", "Do you take debit card?", "Do you accept debit card?", "Do you take credit?", "Do you accept credit cards?", 
