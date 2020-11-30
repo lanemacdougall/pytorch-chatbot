@@ -66,12 +66,12 @@ Also, whenever you\'re ready, I am here to take your order. So just let me know 
         probs = torch.softmax(output, dim=1)
 
         intent_prob = probs[0][predicted.item()]
-        #print(intent)
-        #print(float(intent_prob))
+        print(intent)
+        print(float(intent_prob))
         if intent_prob > 0.75:
-            return intent, intent_prob
+            return intent
         else:
-            return 'fail', intent_prob
+            return 'fail'
 
 
 def chat():
@@ -80,114 +80,113 @@ def chat():
     chatbot.greet()
     states = [0] * len(tags)
     count = 0
+    selected_varieties = []
+    selected_weights = []
     while True:
-        selected_varieties = []
-        selected_weights = []
         if count + 1 % 5 == 0:
-            print(chatbot.prompt, 'Just a friendly reminder that I am ready to take your order at any time! Just let me know that you would like to hear about the varieties we currently offer.')
+            print(chatbot.prompt, 'COUNT: ' + count + ' Just a friendly reminder that I am ready to take your order at any time! Just let me know that you would like to hear about the varieties we currently offer.')
         user_input = chatbot.get_input()
-        if (user_input.lower() == 'done'):
+        if user_input.lower() == 'done':
             print(chatbot.prompt, 'Thanks for chatting! Have a great day!')
             break
-        tag, prob = chatbot.evaluate_input(user_input)
-        if tag == 'fail' or user_input == '':
-            print(chatbot.prompt, 'Sorry, I didn\'t catch that. Your question or comment may be outside of my scope of understanding.\nIf you had a typing error or are able to re-phrase your question or comment, please try again. Otherwise, please feel free to contact my developer with ways in which you believe I can be improved!')
+        tag = chatbot.evaluate_input(user_input)
+        
+        if chatbot.user_context == 'select_variety':
+            if 'no' in user_input.lower() or 'not' in user_input.lower() or 'nah' in user_input.lower() or 'pass' in user_input.lower() or 'nevermind' in user_input.lower() or ('changed' in user_input.lower() and 'mind' in user_input.lower()):
+                print(chatbot.prompt, 'Okay! How else can I assist you?')
+                chatbot.user_context = ''
+            elif 'ethiopian' in user_input.lower() and not 'colombian' in user_input.lower() and not 'guatemalan' in user_input.lower():
+                selected_varieties.append('Ethiopian')
+            elif not 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and not 'guatemalan' in user_input.lower():
+                selected_varieties.append('Colombian')
+            elif not 'ethiopian' in user_input.lower() and not 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
+                selected_varieties.append('Guatemalan')
+            elif 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and not 'guatemalan' in user_input.lower():
+                selected_varieties.append('Ethiopian')
+                selected_varieties.append('Colombian')
+            elif 'ethiopian' in user_input.lower() and not 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
+                selected_varieties.append('Ethiopian')
+                selected_varieties.append('Guatemalan')
+            elif not 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
+                selected_varieties.append('Colombian')
+                selected_varieties.append('Guatemalan')
+            elif 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
+                selected_varieties.append('Ethiopian')
+                selected_varieties.append('Colombian')
+                selected_varieties.append('Guatemalan')
+            else:
+                print(chatbot.prompt, 'I\'m sorry we only offer Ethiopian, Colombian, and Guatemalan varieties at this time. Please try again.')
+
+            if len(selected_varieties) == 1:
+                print(chatbot.prompt, 'Perfect. And what will be the weight (in pounds)?')
+                chatbot.user_context = 'select_weight'
+            elif len(selected_varieties) > 1:
+                print(chatbot.prompt, 'Perfect. Please enter the weights (in pounds) for the ', end="")
+                for i in selected_varieties:
+                    print(i, end=", ")
+                print("in that order and separated by a comma and a space.")
+                chatbot.user_context = 'select_weight'
+        elif chatbot.user_context == 'select_weight':
+            if 'nevermind' in user_input.lower() or ('changed' in user_input.lower() and 'mind' in user_input.lower()):
+                print(chatbot.prompt, 'Okay! How else can I assist you?')
+                chatbot.user_context = ''
+            else:
+                for word in user_input.lower().split():
+                    num = word.replace(",", "", 1)
+                    altered_num = num.replace(".", "", 1)
+                    if altered_num.isdigit():
+                        selected_weights.append(num)
+                if len(selected_weights) == 0:
+                    print(chatbot.prompt, 'I\'m sorry, I didn\'t find any valid weights. Please try again. Remember to list the weights separated by a comma and a space.')
+                else:
+                    order = dict(zip(selected_varieties, selected_weights))
+                    print(chatbot.prompt, "Okay, fantastic. I have you put down for the following order:", end=" ")
+                    count = 0
+                    for variety in order:
+                        if len(order) == 1:
+                            print(variety + ' at ' + order[variety] + "pounds.")
+                        else:
+                            if count < len(order) - 1:
+                                print(variety + ' at ' + order[variety] + "pounds.")
+                            else:
+                                print(' and ' + variety + ' at ' + order[variety] + "pounds.")
+                            count += 1
+                    print('Please feel free to proceed to checkout, or stay and ask me more questions!')
+                    chatbot.user_context = ''
         else:
-            for intent in intents['intents']:
-                # Priority given to intents linked to current context
-                if 'context_filter' in intent and chatbot.user_context == intent['context_filter']:
-                    # If context == 'select_variety':
-                    if chatbot.user_context == 'select_variety':
-                        if 'no' in user_input.lower() or 'not' in user_input.lower() or 'nah' in user_input.lower() or 'pass' in user_input.lower() or 'nevermind' in user_input.lower() or ('changed' in user_input.lower() and 'mind' in user_input.lower()):
-                            print(chatbot.prompt, 'Okay! How else can I assist you?')
-                            chatbot.user_context = ''
+            if tag == 'fail' or user_input == '':
+                print(chatbot.prompt, 'Sorry, I didn\'t catch that. Your question or comment may be outside of my scope of understanding.\nIf you had a typing error or are able to re-phrase your question or comment, please try again. Otherwise, please feel free to contact my developer with ways in which you believe I can be improved!')
+            else:
+                for intent in intents['intents']:
+                    # Priority given to intents linked to current context
+                    if 'context_filter' in intent and chatbot.user_context == intent['context_filter']:
+                        if tag == intent['tag']:
+                            print(chatbot.prompt, intent['responses'][states[tags.index(tag)]])
+                            chatbot.user_context = intent['context_set']
+                            if states[tags.index(tag)] < len(intent['responses'])-1:
+                                states[tags.index(tag)] += 1
                             break
-                        elif 'ethiopian' in user_input.lower() and not 'colombian' in user_input.lower() and not 'guatemalan' in user_input.lower():
-                            selected_varieties.append('Ethiopian')
-                        elif not 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and not 'guatemalan' in user_input.lower():
-                            selected_varieties.append('Colombian')
-                        elif not 'ethiopian' in user_input.lower() and not 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
-                            selected_varieties.append('Guatemalan')
-                        elif 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and not 'guatemalan' in user_input.lower():
-                            selected_varieties.append('Ethiopian')
-                            selected_varieties.append('Colombian')
-                        elif 'ethiopian' in user_input.lower() and not 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
-                            selected_varieties.append('Ethiopian')
-                            selected_varieties.append('Guatemalan')
-                        elif not 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
-                            selected_varieties.append('Colombian')
-                            selected_varieties.append('Guatemalan')
-                        elif 'ethiopian' in user_input.lower() and 'colombian' in user_input.lower() and 'guatemalan' in user_input.lower():
-                            selected_varieties.append('Ethiopian')
-                            selected_varieties.append('Colombian')
-                            selected_varieties.append('Guatemalan')
+                    # Print response to intent with matching tag and no link to a context other than the current context (i.e., don't want to address intents outside of the current context) 
+                    if tag == intent['tag'] and not 'context_filter' in intent: 
+                        if tag == 'bot_name':
+                            state = states[tags.index('bot_name')]
+                            if state == 0:
+                                print(chatbot.prompt, 'My name is ', chatbot.name, '! I will be your virtual assistant today here at GroundsKeeper Coffee, Co.', sep='')
+                            elif state == 1:
+                                print(chatbot.prompt, 'Sorry, I thought that I already told you! My name is ', chatbot.name, '! I will be your virtual assistant today here at GroundsKeeper Coffee, Co.', sep='')
+                            else:
+                                print(chatbot.prompt, 'I\'ve already told you, remember? I\'m ', chatbot.name, '!', sep='')
+                            chatbot.user_context = intent['context_set']
+                            states[tags.index('bot_name')] += 1
                         else:
-                            print(chatbot.prompt, 'I\'m sorry we only offer Ethiopian, Colombian, and Guatemalan varieties at this time. Please try again.')
-                            break
-                        if len(selected_varieties) == 1:
-                            print(chatbot.prompt, 'Perfect. And what will be the weight (in pounds)?')
-                            chatbot.user_context = 'select_weight'
-                        elif len(selected_varieties) > 1:
-                            print(chatbot.prompt, 'Perfect. Please enter the weights (in pounds) for the ', end="")
-                            for i in selected_varieties:
-                                print(i, end=", ")
-                            print("in that order and separated by a comma and a space.")
-                            chatbot.user_context = 'select_weight'
-                    elif chatbot.user_context == 'select_weight':
-                        if 'nevermind' in user_input.lower() or ('changed' in user_input.lower() and 'mind' in user_input.lower()):
-                            print(chatbot.prompt, 'Okay! How else can I assist you?')
-                            chatbot.user_context = ''
-                            break
-                        for word in user_input.lower().split():
-                            num = word.replace(",", "", 1)
-                            altered_num = num.replace(".", "", 1)
-                            if altered_num.isdigit():
-                                selected_weights.append(num)
-                        if len(selected_weights) == 0:
-                            print(chatbot.prompt, 'I\'m sorry, I didn\'t find any valid weights. Please try again. Remember to list the weights separated by a comma and a space.')
-                        else:
-                            order = zip(selected_varieties, selected_weights)
-                            print(chatbot.prompt, "Okay, fantastic. I have you put down for the following order:", end=" ")
-                            count = 0
-                            for variety, weight in order:
-                                if len(order) == 1:
-                                    print(variety + ' at ' + weight)
-                                else:
-                                    if count < len(order) - 1:
-                                        print(variety + ' at ' + weight)
-                                    else:
-                                        print(' and ' + variety + ' at ' + weight)
-                                    count += 1
-                            chatbot.user_context = ''
-                    # Elif context == 'select_weight':
-                    elif tag == intent['tag'] and prob > 0.85:
-                        print(chatbot.prompt, intent['responses'][states[tags.index(tag)]])
-                        chatbot.user_context = intent['context_set']
-                        if states[tags.index(tag)] < len(intent['responses'])-1:
-                            states[tags.index(tag)] += 1
-                    break
-                # Print response to intent with matching tag and no link to a context other than the current context (i.e., don't want to address intents outside of the current context) 
-                if tag == intent['tag'] and not 'context_filter' in intent: 
-                    if tag == 'bot_name':
-                        state = states[tags.index('bot_name')]
-                        if state == 0:
-                            print(chatbot.prompt, 'My name is ', chatbot.name, '! I will be your virtual assistant today here at GroundsKeeper Coffee, Co.', sep='')
-                        elif state == 1:
-                            print(chatbot.prompt, 'Sorry, I thought that I already told you! My name is ', chatbot.name, '! I will be your virtual assistant today here at GroundsKeeper Coffee, Co.', sep='')
-                        else:
-                            print(chatbot.prompt, 'I\'ve already told you, remember? I\'m ', chatbot.name, '!', sep='')
-                        chatbot.user_context = intent['context_set']
-                        states[tags.index('bot_name')] += 1
-                    else:
-                        print(chatbot.prompt, intent['responses'][states[tags.index(tag)]])
-                        chatbot.user_context = intent['context_set']
-                        if states[tags.index(tag)] < len(intent['responses'])-1:
-                            states[tags.index(tag)] += 1
-                    break
-                # Matching tag but context filter that does not match the current context
-                elif tag == intent['tag'] and chatbot.user_context != intent['context_filter']:
-                    print(chatbot.prompt, 'Sorry, I\'m not understanding the context of what you\'re saying. Could you provide me with a bit more context, please?')
-                    break
+                            print(chatbot.prompt, intent['responses'][states[tags.index(tag)]])
+                            chatbot.user_context = intent['context_set']
+                            if states[tags.index(tag)] < len(intent['responses'])-1:
+                                states[tags.index(tag)] += 1
+                    # Matching tag but context filter that does not match the current context
+                    elif tag == intent['tag'] and chatbot.user_context != intent['context_filter']:
+                        print(chatbot.prompt, 'Sorry, I\'m not understanding the context of what you\'re saying. Could you provide me with a bit more context, please?')
+
         count += 1
 
 
