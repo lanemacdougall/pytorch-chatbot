@@ -76,7 +76,7 @@ def train(input_data, labels, tags, all_words):
     hidden_size2 = 32
     output_size = len(tags)
     learning_rate = 0.001
-    epochs = 2500
+    epochs = 3000 
 
     # DataLoader parameters
     shuffle_arg = True
