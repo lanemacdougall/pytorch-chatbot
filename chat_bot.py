@@ -127,6 +127,7 @@ def chat():
                 chatbot.user_context = 'select_weight'
         elif chatbot.user_context == 'select_weight':
             if 'nevermind' in user_input.lower() or ('changed' in user_input.lower() and 'mind' in user_input.lower()):
+                selected_varieties = []
                 print(chatbot.prompt, 'Okay! How else can I assist you?')
                 chatbot.user_context = ''
             else:
