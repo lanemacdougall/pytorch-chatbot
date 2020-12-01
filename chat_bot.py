@@ -96,6 +96,7 @@ def chat():
     # Arrays storing the varieties and weights of the user's coffee order
     selected_varieties = []
     selected_weights = []
+    order = {}
     while True:
         user_input = chatbot.get_input()
         # 'done' signals to the system that the user wishes to discontinue program execution
@@ -160,7 +161,7 @@ def chat():
                     num = word.replace(",", "", 1)
                     altered_num = num.replace(".", "", 1)
                     if altered_num.isdigit():
-                        selected_weights.append(num)
+                        selected_weights.append(float(num))
                 # Provide error message and re-prompt user if no weights (valid numbers) can be extracted from user input or if the number of weights (valid numbers) entered by the user 
                 # do not equal the number of varieties selected by the user
                 if len(selected_weights) == 0:
@@ -169,19 +170,33 @@ def chat():
                     print(chatbot.prompt, 'Please enter a weight for each of the coffee varieties that you selected for your order. Remember to list multiple weights separated by a comma and a space.')
                     selected_weights = []
                 else:
-                    # Zip the selected_varieties and selected_weights arrays together and convert to dictionary - this dictionary represents the user's order
-                    order = dict(zip(selected_varieties, selected_weights))
+                    # If user has not already placed an order, simply create order dictionary by zipping the selected_varieties and selected_weights arrays
+                    if len(order) == 0:
+                        # Zip the selected_varieties and selected_weights arrays together and convert to dictionary - this dictionary represents the user's order
+                        order = dict(zip(selected_varieties, selected_weights))
+                    # Otherwise, if the user has previously selected a selected variety, add the selected weight to that key-value pair in the order dictionary
+                    # If the user has not previously selected a selected variety, add the selected variety and selected weight as a key-value pair to the order dictionary
+                    else:
+                        temp_order = dict(zip(selected_varieties, selected_weights))
+                        for variety in temp_order:
+                            if variety in order:
+                                order[variety] += temp_order[variety]
+                            else:
+                                order[variety] = temp_order[variety]
+                    # Clear selected_varieties and selected_weights arrays in case user decides to add to order later
+                    selected_varieties = []
+                    selected_weights = []
                     # Print out user's order - if-else blocks are used for proper formatting of printed strings
                     print(chatbot.prompt, "Okay, fantastic. I have you put down for the following order:", end=" ")
                     count = 0
                     for variety in order:
                         if len(order) == 1:
-                            print(order[variety] + " pounds of " + variety + ".")
+                            print(str(order[variety]) + " pounds of " + variety + ".")
                         else:
                             if count < len(order) - 1:
-                                print(order[variety] + " pounds of " + variety, end=" ")
+                                print(str(order[variety]) + " pounds of " + variety, end=" ")
                             else:
-                                print(' and ' + order[variety] + " pounds of " + variety + ".")
+                                print(' and ' + str(order[variety]) + " pounds of " + variety + ".")
                             count += 1
                     print('Please feel free to proceed to checkout, or stay and ask me more questions!')
                     chatbot.user_context = ''  # Context is reset and user is prompted to provide new input
