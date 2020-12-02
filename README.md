@@ -36,7 +36,7 @@ This retrieval-based chatbot is implemented using PyTorch and Natural Language T
 ## <a name="install-torch"></a> Install PyTorch
 1. Go to [PyTorch's website](https://pytorch.org/get-started/locally/), select your desired specifications under the "Start Locally" section, and then follow the installation instructions corresponding to your specific OS.
 
-## <a name="download-project"></a> Download Chatbot
+## <a name="download-chatbot"></a> Download Chatbot
 Two download options are available to you.
 ### Clone Repository
 1. Open the terminal or command prompt. [More information](https://www.groovypost.com/howto/open-command-window-terminal-window-specific-folder-windows-mac-linux/).
