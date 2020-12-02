@@ -2,7 +2,7 @@ import nltk
 from nltk.stem import SnowballStemmer
 import numpy as np
 import re
-#nltk.download('punkt') # Requires only one run - comment out after first run
+nltk.download('punkt') # Requires only one run - comment out after first run
 
 # Suite of methods used for natural language processing of English sentences
 

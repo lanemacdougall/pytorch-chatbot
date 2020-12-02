@@ -12,12 +12,12 @@ class NeuralNetwork(nn.Module):   # Class inherits from torch.nn's Module class
         self.layer2 = nn.Linear(hidden_size1, hidden_size2)
         # Output layer takes input of hidden_layer2, outputs size of the number of labels (classes) 
         self.layer3 = nn.Linear(hidden_size2, num_labels)
-        # Using rectified linear (ReLu) activation function in network
+        # Using rectified linear (ReLU) activation function in network
         self.relu = nn.ReLU()
 
     # Function driving forward pass through network (i.e., does not include the backpropagation that occurs in training)
     def forward(self, input):
-        # For each layer (excluding output layer), pass data into layer and then call the relu (ReLu) method on the output of the layer
+        # For each layer (excluding output layer), pass data into layer and then call the relu (ReLU) method on the output of the layer
         # Layer 1
         output = self.layer1(input)
         output = self.relu(output)
