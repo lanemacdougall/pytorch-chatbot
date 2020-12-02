@@ -13,6 +13,8 @@
 
 [Run Chatbot](#run-chatbot)
 
+[Tips When Using Chatbot](#tips)
+
 ## <a name="description"></a> Description
 Basic retrieval-based conversational agent (chatbot) intended to be used by a fictional bulk coffee supplier, GroundsKeeper Coffee, Co.
 The chatbot, nicknamed Bean, is capable of recording users' orders and answering questions about the business' available coffee varieties and hours of operation, the availability of customer service representatives, as well as shipping and payment.
@@ -56,3 +58,10 @@ $ git clone https://github.com/lanemacdougall/project-3-chatbot
 ```sh
 $ python3 chat_bot.py
 ```
+
+## <a name="tips"></a> Tips When Using Chatbot
+1. Try out the latest feature added to the chatbot: You can add to an order that you've already placed with the chatbot (within a single conversation/program execution). Meaning, if you place an order for 2 pounds of Colombian coffee with the chatbot and then carry on with other conversation, you may later request to add to your order and then add 3 pounds of Ethiopian coffee and an additional 2 pounds of Colombian coffee to your order. You can of course add any number of the offered varieties in any valid weights.
+2. You are able to cancel your order after you tell the chatbot that you would like to order or after you specify the variety(ies) that you would like to order. However, once an order is placed with the chatbot, it cannot be cancelled.
+3. The chatbot is programmed to be able to respond to questions and comments regarding the coffee shop that it is intended to be used by, as well as general greetings and formalities. Suggested inputs that you may want to try out include: "Hello, Bean!", "Hey there, Bean!", "How are you doing today?", "Are you doing good today, Bean?", "Thanks so much for all your help today!", "How are you able to assist me?", "What varieties of coffee do you currently have in inventory?", "I have decided what I would like to order today!", "When are your hours of operation?", "What forms of payment do you accept?", "How long does shipping take?", "How much does shipping cost?", "When can I speak to a customer service representative?", and "I want to speak to a rep right now!". 
+4. Do not overwhelm the chatbot with multiple questions and/or comments that might be linked to different intents in a single input. The chatbot is not designed to respond to multiple intents at one time.
+5. Feel free to make mistakes. The chatbot is resilient to mistakes, and you can backtrack or change topics of conversation at any time.
