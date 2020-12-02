@@ -1,5 +1,7 @@
 # Intelligent Systems (CS-5368-001) Project 3
 
+*Note: Please read the [Tips When Using Chatbot](#tips) section prior to using the chatbot
+
 ## Table of Contents
 [Description ](#description)
 
