@@ -1,4 +1,4 @@
-# Intelligent Systems (CS-5368-001) Project 3
+# Coffee Supplier Chatbot (PyTorch)
 
 *Note: Please read the [Tips When Using Chatbot](#tips) section prior to using the chatbot
 
