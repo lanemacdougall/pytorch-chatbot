@@ -18,8 +18,8 @@
 [Tips When Using Chatbot](#tips)
 
 ## <a name="description"></a> Description
-Basic text-based, retrieval-based conversational agent (chatbot) intended to be used by a fictional bulk coffee supplier, GroundsKeeper Coffee, Co.
-The chatbot, nicknamed Bean, is capable of recording users' orders and answering questions about the business' available coffee varieties and hours of operation, the availability of customer service representatives, as well as shipping and payment.
+BEAN: a basic text-based, retrieval-based conversational agent (chatbot) intended to be used by a fictional bulk coffee supplier, GroundsKeeper Coffee, Co.
+BEAN is capable of recording users' orders and answering questions about the business' available coffee varieties and hours of operation, the availability of customer service representatives, as well as shipping and payment.
 
 This retrieval-based chatbot is implemented using PyTorch and Natural Language Toolkit (NLTK). Natural language processing (NLP) techniques performed on training data and user input is done using Python NLTK. A neural network model, implemented using the PyTorch framework and trained on the data in [intents.json](https://github.com/lanemacdougall/project-3-chatbot/blob/main/intents.json), enables the chatbot to perform intent classification on user input. The predicted intent is then used to retrieve an appropriate response. 
 
